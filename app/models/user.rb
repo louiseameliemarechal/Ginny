@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :recommendations
   has_many :favorites
   has_many :friendships
+  validates :username, :phone_number, presence: true, uniqueness: true 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
