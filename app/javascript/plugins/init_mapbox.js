@@ -10,7 +10,10 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/melaurore/ckp484rvd83wp18k8nuf0zqfx'
     });
+
     const markers = JSON.parse(mapElement.dataset.markers);
+
+    if (markers.length === 0) return;
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
       new mapboxgl.Marker()
@@ -28,4 +31,7 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
+
 export { initMapbox };
+
+
