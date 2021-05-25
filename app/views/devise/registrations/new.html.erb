@@ -4,21 +4,39 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :last_name,
+                required: false,
+                label: 'Nom',
+                input_html: { autocomplete: "nom" }%>
+    <%= f.input :first_name,
+                required: true,
+                label: 'Prénom',
+                input_html: { autocomplete: "prénom" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
+                label: 'Adresse mail',
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "username" }%>
     <%= f.input :password,
                 required: true,
+                label: 'Mot de passe',
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
+                label: 'Confirmer mot de passe',
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :phone_number,
+                required: true,
+                label: 'Téléphone',
+                input_html: { autocomplete: "téléphone" }%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Me connecter" %>
   </div>
 <% end %>
 
