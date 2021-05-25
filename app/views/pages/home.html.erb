@@ -1,8 +1,21 @@
-<div class="progress" style="height: 5px;">
-  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+<div data-controller="hello">
+  <div class="progress" style="height: 5px;">
+    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-hello-target="progress"></div>
+  </div>
+  <div data-hello-target="step1">
+    <h3>Bienvenue sur<h3>
+    <h1>Ginny</h1>
+    <p>Cette application t’accompagne
+    toi et tes amis, à trouver une ou un soignant (Gynécologue, sage-femmes ou médecins généralistes) en toute confiance.
+    </p>
+  </div>
 
-<h1>Bienvenue sur Ginny</h1>
-<p>Cette application t’accompagne
-toi et tes amis, à trouver une ou un soignant (Gynécologue, sage-femmes ou médecins généralistes) en toute confiance.
-</p>
+  <div class="d-none" data-hello-target="step2">
+    <h3>Recommander avec<h3>
+    <h1>Ginny</h1>
+    <p>Cette application te permet de recommander un ou une praticienne que tu as déjà consulté à tes amis. Cela leur permettra de trouver un ou une soignante sereinement.
+    </p>
+  </div>
+
+  <div class="button-main" data-action="click->hello#change">Continuer</div>
+</div>
