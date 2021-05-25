@@ -4,11 +4,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name,
+    <%= f.input :first_name,
                 required: true,
                 label: 'Prénom',
                 input_html: { autocomplete: "prénom" }%>
-    <%= f.input :name,
+    <%= f.input :last_name,
                 required: false,
                 label: 'Nom',
                 input_html: { autocomplete: "nom" }%>
@@ -17,6 +17,12 @@
                 autofocus: true,
                 label: 'Adresse mail',
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "username" }%>
+    <%= f.input :phone_number,
+                required: true,
+                input_html: { autocomplete: "phone_number" }%>
     <%= f.input :password,
                 required: true,
                 label: 'Mot de passe',
