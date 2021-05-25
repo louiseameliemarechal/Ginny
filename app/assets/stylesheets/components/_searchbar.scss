@@ -1,35 +1,80 @@
-#form-banner {
+
+// #form-banner {
+//   display: flex;
+//   width: 67%;
+//   padding: 24px 16px;
+//   justify-content: center;
+//   .form-inline {
+//     position: relative;
+//     .btn {
+//       position: absolute;
+//       right: 10px;
+//       background: white;
+//       padding: 0px;
+//     }
+//   }
+// }
+
+// #home-search {
+//   .form-inline {
+//     position: relative;
+//     .btn {
+//       position: absolute;
+//       right: 10px;
+//       background: white;
+//       color: black;
+//       padding: 0px;
+//       height: unset
+//     }
+//   }
+// }
+
+// .form-control {
+//   border-radius: 8px;
+//   border: 2px solid #6D503B;
+//   flex-flow: row wrap;
+// }
+
+.searchbar {
+
+  // STRUCTURE
+  //  <div class="searchbar">
+  //     <input type="text" placeholder="What are you looking for?">
+  //     <button type="submit" </button>
+  //     <i class="fa fa-search"></i>
+  //  </div>
+
   display: flex;
-  width: 67%;
-  padding: 24px 16px;
-  justify-content: center;
-  .form-inline {
-    position: relative;
-    .btn {
-      position: absolute;
-      right: 10px;
-      background: white;
-      padding: 0px;
+  background: white;
+  border: 1px solid $gray;
+  border-radius: 50px;
+  width: 328px;
+  justify-content: space-between;
+
+  input {
+    color: black;
+    font-family: Domine;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    border: none;
+    flex-grow: 1;
+
+    &:focus {
+        outline:none;
     }
+  }
+
+  button {
+    display: none;
+  }
+
+  i {
+    color: $burgundy;
+    width: 10%;
+    padding: 2px;
+    margin-right: -6px;
   }
 }
 
-#home-search {
-  .form-inline {
-    position: relative;
-    .btn {
-      position: absolute;
-      right: 10px;
-      background: white;
-      color: black;
-      padding: 0px;
-      height: unset
-    }
-  }
-}
-
-.form-control {
-  border-radius: 8px;
-  border: 2px solid #6D503B;
-  flex-flow: row wrap;
-}

@@ -2,7 +2,6 @@ class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all
 
-
     if params[:specialty].present?
       @doctors = @doctors.where(specialty: params[:specialty])
     end
@@ -23,5 +22,12 @@ class DoctorsController < ApplicationController
     # if params[:location]
     #   @doctors = @doctors.near(params[:location], 10)
     # end
+    @markers = @doctors.geocoded.map do |doctor|
+      {
+        latitude: doctor.latitude,
+        longitude: doctor.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { doctor: doctor })
+      }
+    end
   end
 end

@@ -9,7 +9,7 @@ User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_
   serialized_doctors = URI.open(url).read
   doctors = JSON.parse(serialized_doctors)
 
-doctors['records'].each do |record|
+=begin doctors['records'].each do |record|
   new_doctor = Doctor.create!(
     first_name: record['fields']['nom'].split.first,
     last_name: record['fields']['nom'].split.last,
@@ -21,6 +21,25 @@ doctors['records'].each do |record|
     average_number: record['fields']['tarif_2']
     )
     puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.save
+end
+=end
+
+doctors['records'].each do |record|
+  new_doctor = Doctor.where(
+    first_name: record['fields']['nom'].split.first,
+    last_name: record['fields']['nom'].split.last, 
+    address: record['fields']['adresse']).first_or_initialize
+    
+    puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.new_record?
+  
+  new_doctor.specialty = record['fields']['nom_acte']
+  new_doctor.profession = record['fields']['libelle_profession']
+  new_doctor.convention = record['fields']['column_14']
+  new_doctor.gender = record['fields']['civilite']
+  new_doctor.average_number = record['fields']['tarif_2']
+
+  new_doctor.save!
+
 end
 
 

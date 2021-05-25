@@ -1,24 +1,30 @@
-<h2>Se connecter</h2>
+<div class="progress" style="height: 5px;">
+    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-hello-target="progress"></div>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                label: 'Adresse mail',
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                label: 'Mot de passe',
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me,
-                label: 'Se souvenir de moi',
-                as: :boolean if devise_mapping.rememberable? %>
-  </div>
+<div class='welcome-page'>
+  <h2 class='mb-4'>Se connecter</h2>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Me connecter" %>
-  </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  label: 'Adresse mail',
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: false,
+                  label: 'Mot de passe',
+                  input_html: { autocomplete: "current-password" } %>
+      <%= f.input :remember_me,
+                  label: 'Se souvenir de moi',
+                  as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Me connecter", class:'button-main my-4' %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

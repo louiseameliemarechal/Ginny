@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+.welcome-page{
+  height: calc(100vh - 71px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
