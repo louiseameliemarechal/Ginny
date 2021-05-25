@@ -6,8 +6,9 @@ class DoctorsController < ApplicationController
       @doctors = @doctors.where(specialty: params[:specialty])
     end
 
-     if params[:gender].present?
-      @doctors = @doctors.where(gender: params[:gender])
+
+    if params[:gender].present?
+      @doctors = @doctors.where(gender: params[:gender].capitalize)
     end
 
     if params[:profession].present?
