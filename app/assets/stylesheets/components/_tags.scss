@@ -1,0 +1,17 @@
+.tag {
+  font-family: Domine;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  width: 100px;
+
+  &.sage-femme {
+    background-color: $tag-marroon;
+  }
+
+  &.gynecologue {
+    background-color: $tag-yellow;
+  }
+}
