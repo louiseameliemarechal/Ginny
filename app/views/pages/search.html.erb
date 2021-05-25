@@ -13,9 +13,9 @@
     placeholder: "L'adresse de mon praticien"
   %>
 
-<%= link_to 'Filtres avancés', ''  %>
+<%= link_to 'Filtres avancés', '', data: { action: "click->search-form#showAdvancedFilters"}  %>
 
-  <div class="advanced_filters d-none">
+  <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
 
     <%= text_field_tag :gender,
       params[:gender],
