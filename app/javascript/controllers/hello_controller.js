@@ -10,11 +10,14 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "step1", "step2", "progress"]
+  static targets = ["step1", "step2", "progress", "loginButton"]
 
   change() {
+    if (this.step1Target.classList.contains('d-none')){
+      this.loginButtonTarget.click()
+    }
     this.step1Target.classList.add('d-none');
     this.step2Target.classList.remove('d-none');
-    this.progressTarget.setAttribute("style", 'width: 60%;')
+    this.progressTarget.setAttribute("style", 'width: 60%;');
   }
 }
