@@ -1,0 +1,88 @@
+.button-main {
+
+  // STRUCTURE
+  //   <a href="#">Partager</a>
+
+  border-radius: 50px;
+  background-color: $burgundy;
+  width: 184px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  display: block;
+  font-family: Martel;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.button-secondary {
+
+  // STRUCTURE
+  //   <a href="#">Continuer avec Facebook</a>
+
+  border-radius: 25px;
+  background-color:$pink;
+  display: block;
+  font-family: Domine;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: none;
+  color: black;
+  padding: 12px;
+  text-align: center;
+  width: 250px;
+  border: 2px solid $burgundy;
+
+
+    &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.button-filter {
+
+  // STRUCTURE
+  //  <div class="button-filter">
+  //   <a href="#">Choisir</a>
+  //   <i class="fas fa-chevron-right"></i>
+  // </div>
+
+  display: flex;
+  background: white;
+  border: 1px solid $gray;
+  border-radius: 50px;
+  padding: 8px;
+  width: 328px;
+  justify-content: space-between;
+  color: black;
+
+  a {
+    font-family: Domine;
+    font-size: 16px;
+    line-height: 18px;
+    color: black;
+    padding-left: 12px;
+    text-decoration: none;
+  }
+
+    &:hover {
+      text-decoration: none;
+      color: black;
+  }
+  i {
+    color: $gray;
+    padding-right: 4px;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $gray;
+  }
+}
