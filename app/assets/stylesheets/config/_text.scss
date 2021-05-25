@@ -16,3 +16,13 @@ h2 {
   text-align: center;
   color: $red;
 }
+
+a {
+  color: #000000 !important;
+  text-decoration: none !important;
+  &:hover {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+}
+
