@@ -1,23 +1,43 @@
-.search-location {
+.searchbar {
+
+  // STRUCTURE
+  //  <div class="searchbar">
+  //     <input type="text" placeholder="What are you looking for?">
+  //     <button type="submit" </button>
+  //     <i class="fa fa-search"></i>
+  //  </div>
+
   display: flex;
   background: white;
   border: 1px solid $gray;
   border-radius: 50px;
-  padding: 8px;
   width: 328px;
   justify-content: space-between;
 
-  p {
+  input {
+    color: black;
     font-family: Domine;
+    font-style: normal;
+    font-weight: normal;
     font-size: 16px;
     line-height: 18px;
-    color: black;
-    padding-left: 12px;
+    border: none;
+    flex-grow: 1;
+
+    &:focus {
+        outline:none;
+    }
+  }
+
+  button {
+    display: none;
   }
 
   i {
     color: $burgundy;
-    padding-right: 8px;
+    width: 10%;
+    padding: 2px;
+    margin-right: -6px;
   }
 }
 
