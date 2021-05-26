@@ -4,7 +4,7 @@ require 'open-uri'
 Doctor.destroy_all
 User.destroy_all
 
-User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332')
+User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332') # Add an avatar by default / upload from a URL
 
 Tag.destroy_all
 Badge.destroy_all

@@ -34,5 +34,10 @@ class DoctorsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { doctor: doctor })
       }
     end
+
+  end
+
+  def show
+    @doctor = Doctor.find(params[:id])
   end
 end
