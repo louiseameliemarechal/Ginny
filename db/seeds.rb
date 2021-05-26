@@ -27,11 +27,11 @@ end
 doctors['records'].each do |record|
   new_doctor = Doctor.where(
     first_name: record['fields']['nom'].split.first,
-    last_name: record['fields']['nom'].split.last, 
+    last_name: record['fields']['nom'].split.last,
     address: record['fields']['adresse']).first_or_initialize
-    
+
     puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.new_record?
-  
+
   new_doctor.specialty = record['fields']['nom_acte']
   new_doctor.profession = record['fields']['libelle_profession']
   new_doctor.convention = record['fields']['column_14']
