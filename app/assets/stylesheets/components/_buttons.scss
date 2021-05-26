@@ -1,3 +1,57 @@
+.button-3-choices {
+
+  // STRUCTURE
+  // <div class="button-3-choices">
+  //   <button>A</button>
+  //   <button>B</button>
+  //   <button>C</button>
+  // </div>
+
+
+  width: max-content;
+  border-radius: 50px;
+  background-color: white;
+
+  button {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px 24px;
+  float: left;
+  cursor: unset;
+  width: 120px;
+  border-radius: 50px;
+
+  }
+
+  :first-child {
+   border-bottom-left-radius: 50px;
+   border-top-left-radius: 50px;
+  }
+
+  :last-child {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  button:hover {
+    background-color: $burgundy;
+    color: white;
+    border: none;
+  }
+
+  button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+
+
 .button-main {
 
   // STRUCTURE
@@ -87,11 +141,11 @@
 .button-slider {
 
 //   STRUCTURE
-//   <div class="button-slider">
-//   <p>Text</p>
-//     <input type="range" class="slider"
-//           min="0" max="10" step="1">
-//    </div>
+  // <div class="button-slider">
+  // <p>Text</p>
+  //   <input type="range" class="slider"
+  //         min="0" max="10" step="1">
+  //  </div>
 
   border-radius: 20px;
   background-color:white;
