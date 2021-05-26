@@ -1,3 +1,57 @@
+.button-3-choices {
+
+  // STRUCTURE
+  // <div class="button-3-choices">
+  //   <button>A</button>
+  //   <button>B</button>
+  //   <button>C</button>
+  // </div>
+
+
+  width: max-content;
+  border-radius: 50px;
+  background-color: white;
+
+  button {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px 24px;
+  float: left;
+  cursor: unset;
+  width: 120px;
+  border-radius: 50px;
+
+  }
+
+  :first-child {
+   border-bottom-left-radius: 50px;
+   border-top-left-radius: 50px;
+  }
+
+  :last-child {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  button:hover {
+    background-color: $burgundy;
+    color: white;
+    border: none;
+  }
+
+  button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+
+
 .button-main {
 
   // STRUCTURE
@@ -6,7 +60,6 @@
   border-radius: 50px;
   background-color: $burgundy;
   width: 184px;
-  padding: 20px;
   text-align: center;
   color: white;
   display: block;
@@ -35,7 +88,6 @@
   line-height: 18px;
   text-decoration: none;
   color: black;
-  padding: 12px;
   text-align: center;
   width: 250px;
   border: 2px solid $burgundy;
@@ -59,7 +111,6 @@
   background: white;
   border: 1px solid $gray;
   border-radius: 50px;
-  padding: 8px;
   width: 328px;
   justify-content: space-between;
   color: black;
@@ -86,3 +137,117 @@
     color: $gray;
   }
 }
+
+.button-slider {
+
+//   STRUCTURE
+  // <div class="button-slider">
+  // <p>Text</p>
+  //   <input type="range" class="slider"
+  //         min="0" max="10" step="1">
+  //  </div>
+
+  border-radius: 20px;
+  background-color:white;
+  width: 328px;
+  border: 1px solid $gray;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+   p {
+    padding: 14px;
+    margin-bottom: -20px;
+    font-family: Domine;
+    font-size: 16px;
+    color: black;
+  }
+
+   input {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    color: $gray;
+    outline: none;
+    margin-bottom: 8px;
+  }
+
+// For the slider thumb & track
+// Source : https://www.cssportal.com/style-input-range/
+
+  input[type=range] {
+  height: 30px;
+  -webkit-appearance: none;
+  margin: 26px 20px;
+  width: 80%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 80%;
+    height: 3px;
+    cursor: pointer;
+    background: $gray;
+    border-radius: 0px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: 26px;
+    width: 26px;
+    border-radius: 50px;
+    background: $burgundy;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $gray;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000;
+    background: $gray;
+    border-radius: 0px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background: $burgundy;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: $gray;
+    border-radius: 0px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: $gray;
+    border-radius: 0px;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    background: $burgundy;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: $gray;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: $gray;
+  }
+}
+
