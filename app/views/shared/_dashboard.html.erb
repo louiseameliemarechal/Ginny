@@ -1,16 +1,20 @@
 <div id='dashboard' class='hidden'>
-  <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
-  <h1><%= current_user.username %></h1>
-  <p>x amis</p>
-  <%# <%= current_user.recommendations.count%>
-  <p>x recommandations</p>
+  <% if user_signed_in? %>
+    <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+    <h1><%= current_user.username %></h1>
+    <p>x amis</p>
+    <%# <%= current_user.recommendations.count%>
+    <p>x recommandations</p>
 
-  <%# <%= current_user.friendships.friend.count when we'll have friends ! To check %>
+    <%# <%= current_user.friendships.friend.count when we'll have friends ! To check %>
 
-  <h3>Soignants sauvgardés</h3>
-  <hr>
-  <%# <p><%= current_user.doctors</p> formule ok quand on aura fav doctors%>
+    <h3>Soignants sauvgardés</h3>
+    <hr>
+    <%# <p><%= current_user.doctors</p> formule ok quand on aura fav doctors%>
 
-  <%= link_to 'Edit', edit_user_registration_path%><br>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <%= link_to 'Edit', edit_user_registration_path%><br>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+  <% end %>
 </div>
