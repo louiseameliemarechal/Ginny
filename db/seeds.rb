@@ -2,8 +2,9 @@ require 'json'
 require 'open-uri'
 
 Doctor.destroy_all
+User.destroy_all
 
-User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '066915133')
+User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332')
 
 Tag.destroy_all
 Badge.destroy_all
@@ -12,37 +13,43 @@ Badge.destroy_all
   serialized_doctors = URI.open(url).read
   doctors = JSON.parse(serialized_doctors)
 
-=begin doctors['records'].each do |record|
-  new_doctor = Doctor.create!(
-    first_name: record['fields']['nom'].split.first,
-    last_name: record['fields']['nom'].split.last,
-    address: record['fields']['adresse'],
-    specialty: record['fields']['nom_acte'],
-    profession: record['fields']['libelle_profession'],
-    convention: record['fields']['column_14'],
-    gender: record['fields']['civilite'],
-    average_number: record['fields']['tarif_2']
-    )
-    puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.save
-end
-=end
 
 doctors['records'].each do |record|
-  new_doctor = Doctor.where(
-    first_name: record['fields']['nom'].split.first,
-    last_name: record['fields']['nom'].split.last,
-    address: record['fields']['adresse']).first_or_initialize
+  if record['fields']['coordonnees']
 
-    puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.new_record?
+    first_name = record['fields']['nom'].split.first
+    last_name = record['fields']['nom'].split.last
+    latitude = record['fields']['coordonnees'][0]
+    longitude = record['fields']['coordonnees'][1]
+    # Creating the address using reverse geocoding
+    url = "https://api.mapbox.com/geocoding/v5/mapbox.places/#{longitude},#{latitude}.json?access_token=#{ENV['MAPBOX_API_KEY']}"
+    address_serialized = URI.open(url).read
+    address = JSON.parse(address_serialized)["features"].first
+    # address has this format : "7 Villa Gaudelet, 75011 Paris, France"
+    street = address["place_name"].split(",")[0]
+    city = address["place_name"].split(",")[1]
+    country = address["place_name"].split(",")[2]
 
-  new_doctor.specialty = record['fields']['nom_acte']
-  new_doctor.profession = record['fields']['libelle_profession']
-  new_doctor.convention = record['fields']['column_14']
-  new_doctor.gender = record['fields']['civilite']
-  new_doctor.average_number = record['fields']['tarif_2']
+    new_doctor = Doctor.where(
+      first_name: first_name,
+      last_name: last_name,
+      latitude: latitude,
+      longitude: longitude,
+      street: street,
+      city: city,
+      country: country
+    ).first_or_initialize
 
-  new_doctor.save!
+      puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.new_record?
 
+    new_doctor.specialty = record['fields']['nom_acte']
+    new_doctor.profession = record['fields']['libelle_profession']
+    new_doctor.convention = record['fields']['column_14']
+    new_doctor.gender = record['fields']['civilite']
+    new_doctor.average_number = record['fields']['tarif_2']
+
+    new_doctor.save!
+  end
 end
 
 

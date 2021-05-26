@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+
   def index
     @doctors = Doctor.all
 
@@ -18,14 +19,6 @@ class DoctorsController < ApplicationController
       @doctors = @doctors.where(convention: params.dig(:search, :convention))
     end
 
-    # if params.dig(:search, :specialty).present?
-    #  @doctors = Doctor.joins(:tag).where(sql_query, picto: "%#{params.dig(:search, :specialty)[:picto]}%")
-    # end
-    # raise
-    # if params[:location]
-    #   @doctors = @doctors.near(params[:location], 10)
-    # end
-
     if params[:search][:tags].reject(&:empty?).present?
       @doctors = @doctors.joins(:tags).where(tags: {name: params[:search][:tags].reject(&:empty?)})
     end
@@ -34,7 +27,7 @@ class DoctorsController < ApplicationController
       @doctors = @doctors.joins(:badges).where(badges: {picto: params[:search][:badges].reject(&:empty?)})
     end
 
-    @markers = @doctors.geocoded.map do |doctor|
+    @markers = @doctors.map do |doctor|
       {
         latitude: doctor.latitude,
         longitude: doctor.longitude,
