@@ -1,6 +1,6 @@
+<%= cl_image_tag current_user.photo.key, class: "avatar-xxl", width: 200 %>
 <h1><%= current_user.username %></h1>
 <%# <%= current_user.avatar %>
-<%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill  %>
 
 <p>x recommandations</p>
 <p>x amis</p>
@@ -11,4 +11,4 @@
 <h3>Mes filtres</h3>
 <hr>
 
-
+<%= link_to 'Edit', edit_user_registration_path%>
