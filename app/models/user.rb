@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :recommendations
   has_many :favorites
+  has_many :doctors, through: :favorites
   has_many :friendships
   has_one_attached :photo
   validates :username, presence: true, uniqueness: true
