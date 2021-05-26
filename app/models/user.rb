@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :recommendations
   has_many :favorites
   has_many :friendships
+  has_one_attached :photo
   validates :username, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true, format: { with: /0[6-7]\d{8}/, message: "format invalide" }
   devise :database_authenticatable, :registerable,
