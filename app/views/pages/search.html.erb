@@ -1,0 +1,49 @@
+
+
+<%#= form_tag doctors_path, method: :get, data: { controller: "search-form" } do %>
+<%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
+  <%= f.input :speciality,
+    input_html: { value:  params[:speciality] },
+    class: "form-control",
+    placeholder: "La spécialité de mon praticien"
+  %>
+
+  <%#= text_field_tag :address,
+    params[:address],
+    class: "form-control",
+    placeholder: "L'adresse de mon praticien"
+  %>
+
+<%= link_to 'Filtres avancés', '',
+  data: {
+    action: "click->search-form#showAdvancedFilters",
+    search_form_target: 'filtersBtn'
+  }  %>
+
+  <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
+
+    <%= f.input :gender,
+      collection: Doctor.genders,
+      input_html: { class: "form-control" },
+      placeholder: "Le genre de mon praticien" %>
+    <%#= text_field_tag :gender,
+      params[:gender],
+      class: "form-control",
+      placeholder: "Le genre de mon praticien"
+    %>
+    <%= f.input :profession,
+      collection: Doctor.professions,
+      input_html: { class: "form-control" },
+      placeholder: "La profession de mon praticien" %>
+
+    <%= f.input :convention,
+      collection: Doctor.conventions,
+      input_html: { class: "form-control" },
+      placeholder: "La convention de mon praticien" %>
+
+  </div>
+
+  <%= f.submit :search, class: "btn btn-primary" %>
+  <%#= submit_tag "Search", class: "btn btn-primary" %>
+
+<% end %>

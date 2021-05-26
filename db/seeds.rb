@@ -43,4 +43,8 @@ doctors['records'].each do |record|
 end
 
 
+Badge.create(picto: 'sympa')
+Badge.create(picto: 'empathique')
 
+Tag.create(picto:'ivg friendly', name: 'ivg')
+Tag.create(picto:'fleuriste', name: 'fleurs')
