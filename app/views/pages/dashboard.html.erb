@@ -1,5 +1,6 @@
 <h1><%= current_user.username %></h1>
 <%# <%= current_user.avatar %>
+<%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill  %>
 
 <p>x recommandations</p>
 <p>x amis</p>
