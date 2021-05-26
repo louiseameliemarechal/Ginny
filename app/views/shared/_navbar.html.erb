@@ -18,7 +18,11 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown"%>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown"%>
+          <% else %>
+            <%= image_tag 'avatar-par-defaut.jpg', class: "avatar", id: "navbarDropdown" %>
+          <% end %>
           </div>
         </li>
       <% else %>
