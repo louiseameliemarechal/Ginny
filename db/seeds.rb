@@ -4,6 +4,7 @@ require 'open-uri'
 Doctor.destroy_all
 User.destroy_all
 
+
 User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332') # Add an avatar by default / upload from a URL
 
 Tag.destroy_all
@@ -43,7 +44,8 @@ doctors['records'].each do |record|
       puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.new_record?
 
     new_doctor.specialty = record['fields']['nom_acte']
-    new_doctor.profession = record['fields']['libelle_profession']
+    # new_doctor.profession = record['fields']['libelle_profession']
+    new_doctor.profession = ["généraliste", "sage-femme", "gynécologue"].sample
     new_doctor.convention = record['fields']['column_14']
     new_doctor.gender = record['fields']['civilite']
     new_doctor.average_number = record['fields']['tarif_2']
