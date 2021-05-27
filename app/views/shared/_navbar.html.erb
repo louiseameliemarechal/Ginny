@@ -1,37 +1,59 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+  <%= link_to "#", class: "navbar-brand " do %>
+   <%= image_tag 'Ginny_logo.png' %>
+  <% end %>
+  <% if user_signed_in? %>
+    <div class="nav-item dropdown">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown"%>
+      <% else %>
+        <%= image_tag 'avatar-par-defaut.jpg', class: "avatar", id: "navbarDropdown" %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="nav-item">
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    </div>
+  <% end %>
+</div>
 
+<%# <li class="nav-item active"> %>
+  <%#= link_to "Home", "#", class: "nav-link" %>
+<%# </li> %>
+<%# <li class="nav-item">
+  <a href="#" data-toggle="modal" data-target="#exampleModal" class="nav-link">
+    <i class="fas fa-plus-circle reco-button"></i>
+  </a>
+</li> %>
+
+<%#
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> %>
 
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
+  <%# <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"> %>
+      <%# if user_signed_in? %>
+        <%# <li class="nav-item active"> %>
+          <%#= link_to "Home", "#", class: "nav-link" %>
+        <%# </li> %>
+        <%# <li class="nav-item">
           <a href="#" data-toggle="modal" data-target="#exampleModal" class="nav-link">
             <i class="fas fa-plus-circle reco-button"></i>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown"%>
-          <% else %>
-            <%= image_tag 'avatar-par-defaut.jpg', class: "avatar", id: "navbarDropdown" %>
-          <% end %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+        <li class="nav-item dropdown"> %>
+          <%# if current_user.photo.attached? %>
+            <%#= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown"%>
+          <%# else %>
+            <%#= image_tag 'avatar-par-defaut.jpg', class: "avatar", id: "navbarDropdown" %>
+          <%# end %>
+          <%# </div> %>
+        <%# </li> %>
+      <%# else %>
+        <%# <li class="nav-item"> %>
+          <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <%# </li> %>
+      <%# end %>
+    <%# </ul> %>
+  <%# </div> %>
