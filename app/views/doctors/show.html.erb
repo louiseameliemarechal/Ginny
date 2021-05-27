@@ -1,27 +1,28 @@
-<h4><%= "#{attribute(@doctor)} #{@doctor.first_name.capitalize} #{@doctor.last_name.capitalize}" %></h4>
+<div class='container show'>
+  <h4><%= "#{attribute(@doctor)} #{@doctor.first_name.capitalize} #{@doctor.last_name.capitalize}" %></h4>
 
-<p><%= "#{@doctor.street}" %></p>
-<p><%= "#{@doctor.city}" %></p>
-<hr>
-<p><%= "#{@doctor.profession}" %></p>
-<hr>
+  <p><%= "#{@doctor.street}" %></p>
+  <p><%= "#{@doctor.city}" %></p>
+  <hr>
+  <p><%= "#{@doctor.profession}" %></p>
+  <hr>
 
-<h5>Tags</h5>
-<hr>
+  <h5>Tags</h5>
+  <hr>
 
-<h5>Les badges de la communauté</h5>
-<hr>
+  <h5>Les badges de la communauté</h5>
+  <hr>
 
-<h5>Recommandé par</h5>
-<hr>
+  <h5>Recommandé par</h5>
+  <hr>
 
 
-<h5> Tarifs et remboursement</h5>
-<p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
-<p><%= "#{carte_vital(@doctor)}" %></p>
-<p>Conventionné <%= "#{@doctor.convention}" %></p>
+  <h5> Tarifs et remboursement</h5>
+  <p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
+  <p><%= "#{carte_vital(@doctor)}" %></p>
+  <p>Conventionné <%= "#{@doctor.convention}" %></p>
 
-<%= link_to doctor_favorites_path(@doctor), method: :post do %>
-  <i class="fas fa-heart"></i>
-<% end %>
-
+  <%= link_to doctor_favorites_path(@doctor), method: :post do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+</div>
