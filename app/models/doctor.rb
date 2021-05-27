@@ -5,7 +5,7 @@ class Doctor < ApplicationRecord
   has_many :badges, -> { distinct }, through: :recommendations
   validates :first_name, :last_name, :profession, :gender, presence: true
 
-  # geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
   # after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
