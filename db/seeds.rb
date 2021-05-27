@@ -1,11 +1,14 @@
 require 'json'
 require 'open-uri'
 
+Friendship.destroy_all
 Doctor.destroy_all
 User.destroy_all
 
 
-User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332') # Add an avatar by default / upload from a URL
+user_1 = User.create!(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332') # Add an avatar by default / upload from a URL
+user_2 = User.create!(email: 'test2@test.com', username: 'Jeanne', password: '123456', phone_number: '0669151732') # Add an avatar by default / upload from a URL
+Friendship.create!(user: user_1, friend: user_2)
 
 Tag.destroy_all
 Badge.destroy_all
@@ -49,14 +52,15 @@ doctors['records'].each do |record|
     new_doctor.convention = record['fields']['column_14']
     new_doctor.gender = record['fields']['civilite']
     new_doctor.average_number = record['fields']['tarif_2']
+    new_doctor.carte_vital = record['fields']['column_16']
 
     new_doctor.save!
   end
 end
 
 
-Badge.create(picto: 'sympa')
-Badge.create(picto: 'empathique')
+Badge.create!(picto: 'sympa')
+Badge.create!(picto: 'empathique')
 
-Tag.create(picto:'ivg friendly', name: 'ivg')
-Tag.create(picto:'fleuriste', name: 'fleurs')
+Tag.create!(picto:'ivg friendly', name: 'ivg')
+Tag.create!(picto:'fleuriste', name: 'fleurs')

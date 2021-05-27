@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_102058) do
     t.string "city"
     t.string "country"
     t.text "street"
+    t.string "carte_vital"
   end
 
   create_table "favorites", force: :cascade do |t|

@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: :show
+  # before_action :set_doctor, only: :show
 
   def index
     @doctors = Doctor.all
@@ -36,7 +36,7 @@ class DoctorsController < ApplicationController
       {
         latitude: doctor.latitude,
         longitude: doctor.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { doctor: doctor })
+        info_window: render_to_string(partial: "marker_window", locals: { doctor: doctor })
       }
     end
 
