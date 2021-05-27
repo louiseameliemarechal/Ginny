@@ -1,0 +1,21 @@
+.badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position:relative;
+  background-color: black;
+
+  .counter {
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: $red;
+    font-size: 11px;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+    right: -2px;
+    bottom: 43px;
+  }
+}
