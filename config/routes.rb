@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:destroy]
 
+  resources :profiles, only: [:show]
+
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
 end
