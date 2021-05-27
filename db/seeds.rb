@@ -49,6 +49,7 @@ doctors['records'].each do |record|
     new_doctor.convention = record['fields']['column_14']
     new_doctor.gender = record['fields']['civilite']
     new_doctor.average_number = record['fields']['tarif_2']
+    new_doctor.carte_vital = record['fields']['column_16]
 
     new_doctor.save!
   end

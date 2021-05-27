@@ -13,12 +13,6 @@ h2 {
   color: $red;
 }
 
-h4 {
-  font-family: Domine!important;
-  font-size: 20px;
-  color: black;
-}
-
 h3 {
   font-family:  Domine!important;
   font-size: 8px;
@@ -26,8 +20,19 @@ h3 {
   color: $red;
 }
 
+h4 {
+  font-family: Domine!important;
+  font-size: 20px;
+  color: black;
+}
+
+h5 {
+  color: black;
+}
+
 p {
   color:#000000;
+  font-family: 'Domine';
 }
 
 a {

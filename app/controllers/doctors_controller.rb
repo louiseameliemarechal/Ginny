@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: :show
+  # before_action :set_doctor, only: :show
 
   def index
     @doctors = Doctor.all

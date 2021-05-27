@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/search', to: 'pages#search'
   get '/filtre', to: 'doctors#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :doctors, only: [:index, :show]
+  resources :doctors, only: [:index, :show] do
+    resources :favorites, only: [:create]
+  end
+
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
 end
