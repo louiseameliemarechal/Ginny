@@ -1,12 +1,16 @@
 class DoctorsController < ApplicationController
-  before_action :set_doctor, only: :show
+  # before_action :set_doctor, only: :show
 
   def index
     @doctors = Doctor.all
 
-    if params.dig(:search, :specialty).present?
-      @doctors = @doctors.where(specialty: params.dig(:search, :specialty))
+    if params.dig(:search, :name_or_specialty).present?
+      @doctors = @doctors.search_by_name_and_specialty(params.dig(:search, :name_or_specialty))
     end
+
+    # if params.dig(:search, :specialty).present?
+    #  @doctors = @doctors.where(specialty: params.dig(:search, :specialty))
+    # end
 
     if params.dig(:search, :gender).present?
       @doctors = @doctors.where(gender: params.dig(:search, :gender)&.capitalize)
@@ -32,7 +36,7 @@ class DoctorsController < ApplicationController
       {
         latitude: doctor.latitude,
         longitude: doctor.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { doctor: doctor })
+        info_window: render_to_string(partial: "marker_window", locals: { doctor: doctor })
       }
     end
 
