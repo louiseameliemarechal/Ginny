@@ -4,7 +4,7 @@ require 'open-uri'
 Doctor.destroy_all
 User.destroy_all
 
-User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332')
+User.create(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332' )
 
   url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=medecins&q=&rows=50&facet=civilite&facet=column_12&facet=column_13&facet=column_14&facet=column_16&facet=libelle_profession&facet=type_dacte_realise&facet=commune&facet=nom_epci&facet=nom_dep&facet=nom_reg&facet=insee_reg&facet=insee_dep&facet=libelle_regroupement&facet=libelle&facet=libelle_acte_clinique&refine.libelle_profession=Gyn%C3%A9cologue+obst%C3%A9tricien'
   serialized_doctors = URI.open(url).read
@@ -40,7 +40,8 @@ doctors['records'].each do |record|
       puts "#{new_doctor.first_name} #{new_doctor.last_name} created" if new_doctor.new_record?
 
     new_doctor.specialty = record['fields']['nom_acte']
-    new_doctor.profession = record['fields']['libelle_profession']
+    # new_doctor.profession = record['fields']['libelle_profession']
+    new_doctor.profession = ["généraliste", "sage-femme", "gynécologue"].sample
     new_doctor.convention = record['fields']['column_14']
     new_doctor.gender = record['fields']['civilite']
     new_doctor.average_number = record['fields']['tarif_2']

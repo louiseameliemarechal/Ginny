@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+  before_action :set_doctor, only: :show
 
   def index
     @doctors = Doctor.all
@@ -32,5 +33,11 @@ class DoctorsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { doctor: doctor })
       }
     end
+  end
+
+  private
+
+  def set_doctor
+    @doctor = Doctor.find(params[:doctor_id])
   end
 end

@@ -1,0 +1,18 @@
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 40px;
+  position: relative;
+
+  .doctor-card-text {
+    flex-grow: 1;
+
+    p {
+      margin-bottom: -4px;
+    }
+  }
+
+  .tag {
+   margin-top: auto;
+  }
+}
