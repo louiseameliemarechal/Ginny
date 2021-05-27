@@ -4,11 +4,11 @@
       <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
     <% end %>
     <h1><%= current_user.username %></h1>
-    <p>x amis</p>
+    <p><%= current_user.friendships.count%> amis</p>
     <%# <%= current_user.recommendations.count%>
     <p>x recommandations</p>
 
-    <%# <%= current_user.friendships.friend.count when we'll have friends ! To check %>
+
 
     <h3>Soignants sauvgardés</h3>
     <% current_user.favorites.includes(:doctor).each do |favorite| %>
