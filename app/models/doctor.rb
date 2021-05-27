@@ -1,5 +1,8 @@
 class Doctor < ApplicationRecord
   has_many :recommendations
+
+  has_many :tags, -> { distinct }, through: :recommendations
+  has_many :badges, -> { distinct }, through: :recommendations
   validates :first_name, :last_name, :profession, :gender, presence: true
 
   # geocoded_by :address

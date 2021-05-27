@@ -26,6 +26,7 @@
       collection: Doctor.genders,
       input_html: { class: "form-control" },
       placeholder: "Le genre de mon praticien" %>
+
     <%#= text_field_tag :gender,
       params[:gender],
       class: "form-control",
@@ -40,6 +41,20 @@
       collection: Doctor.conventions,
       input_html: { class: "form-control" },
       placeholder: "La convention de mon praticien" %>
+
+     <%= f.input :tags,
+      as: :check_boxes,
+      collection: Tag.all_names,
+      input_html: { class: "form-control" },
+      placeholder: "Les tags de mon praticien" %>
+
+     <%= f.input :badges,
+      as: :check_boxes,
+      collection: Badge.pluck(:picto),
+      input_html: { class: "form-control" },
+      placeholder: "Les tags de mon praticien" %>
+
+
 
   </div>
 
