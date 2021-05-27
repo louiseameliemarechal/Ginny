@@ -8,12 +8,7 @@
     placeholder: "La spécialité de mon praticien"
   %>
 
-  <%#= text_field_tag :address,
-    params[:address],
-    class: "form-control",
-    placeholder: "L'adresse de mon praticien"
-  %>
-
+ 
 <%= link_to 'Filtres avancés', '',
   data: {
     action: "click->search-form#showAdvancedFilters",
@@ -53,8 +48,6 @@
       collection: Badge.pluck(:picto),
       input_html: { class: "form-control" },
       placeholder: "Les tags de mon praticien" %>
-
-
 
   </div>
 
