@@ -5,8 +5,16 @@
 </div>
 
 <% @doctors.each do |doctor| %>
-  <p><%= "#{doctor.first_name.capitalize} #{doctor.last_name.capitalize}" %></p>
-  <p><%= "#{doctor.street}" %></p>
-  <p><%= "#{doctor.city}" %></p>
-  <p><%= "#{doctor.country}" %></p>
+  <div class='box-bordered'>
+    <div class ='doctor-card'>
+      <div class="doctor-card-text">
+        <h4><%= "#{attribute(doctor)} #{doctor.first_name.capitalize} #{doctor.last_name.capitalize}" %></h4>
+        <p><%= "#{doctor.street}" %></p>
+        <p><%= "#{doctor.city}" %></p>
+      </div>
+      <div class='tag py-1 <%=doctor.profession%>' >
+        <%= "#{doctor.profession.capitalize}" %>
+      </div>
+    </div>
+  </div>
 <% end %>

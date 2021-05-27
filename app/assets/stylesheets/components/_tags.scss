@@ -11,7 +11,11 @@
     background-color: $tag-marroon;
   }
 
-  &.gynecologue {
+  &.gynécologue {
     background-color: $tag-yellow;
+  }
+
+  &.généraliste {
+    background-color: $tag-grey;
   }
 }
