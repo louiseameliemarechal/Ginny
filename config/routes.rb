@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :doctors, only: [:index, :show] do
     resources :favorites, only: [:create]
   end
+  resources :favorites, only: [:destroy]
 
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
 end

@@ -11,9 +11,10 @@
     <%# <%= current_user.friendships.friend.count when we'll have friends ! To check %>
 
     <h3>Soignants sauvgardés</h3>
-    <% current_user.doctors.each do |doctor| %>
+    <% current_user.favorites.includes(:doctor).each do |favorite| %>
       <ul>
-        <li><%= "#{doctor.first_name} #{doctor.last_name} - #{doctor.profession}" %></li>
+        <li><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
+        <li><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
       </ul>
     <% end %>
     <hr>
