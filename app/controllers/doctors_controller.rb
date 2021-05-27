@@ -32,7 +32,7 @@ class DoctorsController < ApplicationController
       {
         latitude: doctor.latitude,
         longitude: doctor.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { doctor: doctor })
+        info_window: render_to_string(partial: "marker_window", locals: { doctor: doctor })
       }
     end
 

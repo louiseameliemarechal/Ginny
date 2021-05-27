@@ -1,7 +1,9 @@
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="map-container">
+  <div id="map" class="map"
+      style="width: 100%; height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
 <% @doctors.each do |doctor| %>
@@ -12,8 +14,10 @@
         <p><%= "#{doctor.street}" %></p>
         <p><%= "#{doctor.city}" %></p>
       </div>
-      <div class='tag py-1 <%=doctor.profession%>' >
-        <%= "#{doctor.profession.capitalize}" %>
+      <div class="doctor-card-tag">
+        <div class='tag py-1 <%=doctor.profession%>' >
+          <%= "#{doctor.profession.capitalize}" %>
+        </div>
       </div>
     </div>
   </div>
