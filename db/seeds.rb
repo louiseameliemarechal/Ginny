@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-Favorites.destroy_all
+Favorite.destroy_all
 Friendship.destroy_all
 Doctor.destroy_all
 User.destroy_all
