@@ -1,0 +1,25 @@
+<div class="container show">
+  <% if @profile.photo.attached?%>
+    <%= cl_image_tag @profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+  <% end %>
+
+  <h1><%= @profile.username %></h1>
+
+  <p><%= pluralize(@profile.friendships.count, 'ami', 'amis')%></p>
+
+
+  <% unless @profile == current_user %>
+    <%= link_to 'Follow', profile_friendships_path(@profile), method: :post unless @friendship %>
+    <%= link_to 'Unfollow', friendship_path(@friendship), method: :delete if @friendship %>
+  <% end %>
+
+  <%# <%= @profile.recommendations.count%>
+
+  <h3>Soignants sauvgardés</h3>
+  <% @profile.favorites.includes(:doctor).each do |favorite| %>
+    <ul>
+      <li><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
+    </ul>
+  <% end %>
+  <hr>
+</div>
