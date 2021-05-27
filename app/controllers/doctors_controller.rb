@@ -19,11 +19,11 @@ class DoctorsController < ApplicationController
       @doctors = @doctors.where(convention: params.dig(:search, :convention))
     end
 
-    if params[:search][:tags].reject(&:empty?).present?
+    if params.dig(:search, :tags).present? && params.dig(:search, :tags).reject(&:empty?).present?
       @doctors = @doctors.joins(:tags).where(tags: {name: params[:search][:tags].reject(&:empty?)})
     end
 
-    if params[:search][:badges].reject(&:empty?).present?
+    if params.dig(:search, :badges).present? && params.dig(:search, :badges).reject(&:empty?).present?
       @doctors = @doctors.joins(:badges).where(badges: {picto: params[:search][:badges].reject(&:empty?)})
     end
 
