@@ -3,7 +3,6 @@
 <p><%= "#{@doctor.street}" %></p>
 <p><%= "#{@doctor.city}" %></p>
 <hr>
-<div class="fa-solid fa-square-heart"></div>
 <p><%= "#{@doctor.profession}" %></p>
 <hr>
 
@@ -21,3 +20,8 @@
 <p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
 <p><%= "#{carte_vital(@doctor)}" %></p>
 <p>Conventionné <%= "#{@doctor.convention}" %></p>
+
+<%= link_to doctor_favorites_path(@doctor), method: :post do %>
+  <i class="fas fa-heart"></i>
+<% end %>
+
