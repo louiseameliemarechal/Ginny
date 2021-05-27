@@ -11,6 +11,11 @@
     <%# <%= current_user.friendships.friend.count when we'll have friends ! To check %>
 
     <h3>Soignants sauvgardés</h3>
+    <% current_user.doctors.each do |doctor| %>
+      <ul>
+        <li><%= "#{doctor.first_name} #{doctor.last_name} - #{doctor.profession}" %></li>
+      </ul>
+    <% end %>
     <hr>
     <%# <p><%= current_user.doctors</p> formule ok quand on aura fav doctors%>
 
