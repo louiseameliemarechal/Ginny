@@ -6,15 +6,16 @@
     <h1><%= current_user.username %></h1>
     <p><%= pluralize(current_user.friendships.count, 'ami', 'amis')%></p>
     <%# <%= current_user.recommendations.count%>
-    <p>x recommandations</p>
+    <p>x recommandations</p><br>
 
 
 
-    <h3 class="h6">Soignants sauvgardés</h3>
+    <h3 class="h6">Soignants sauvgardés</h3><br>
     <% current_user.favorites.includes(:doctor).each do |favorite| %>
       <ul>
-        <li class="black-color"><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
-        <li class="light-text"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
+        <li class="black-color smaller-text"><strong><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name}"%></strong></li>
+        <li class="black-color smaller-text"><%= favorite.doctor.profession %></li>
+        <li class= "smaller-text light-grey-color"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
       </ul>
     <% end %>
     <hr>
