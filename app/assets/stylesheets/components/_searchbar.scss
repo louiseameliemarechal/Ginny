@@ -48,8 +48,10 @@
   background: white;
   border: 1px solid $lighter-grey;
   border-radius: 50px;
-  width: 328px;
+  width: 350px;
+  height: 60px;
   justify-content: space-between;
+  position: relative;
 
   input {
     color: black;
@@ -76,12 +78,24 @@
     padding: 2px;
     margin-right: -6px;
   }
+
+  .search-pin {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translate(-25%, -50%);
+  }
 }
 
-.fas fa-map-marker-alt {
-  color: $burgundy;
+
+.ap-icon-pin svg {
+    fill: $burgundy;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translate(-25%, -50%);
 }
 
-.fas fa-search {
-  color: $burgundy;
+.ap-icon-clear svg {
+  transform: translate(-100%, -50%);
 }
