@@ -18,6 +18,9 @@ h3 {
   font-size: 8px;
   line-height: 27px;
   color: $red;
+  .h3 {
+    font-size: 1rem;
+  }
 }
 
 h4 {
@@ -55,4 +58,8 @@ a {
 ul {
   list-style-type: none;
   padding-left: 0
+}
+
+.black-color {
+  color: black;
 }

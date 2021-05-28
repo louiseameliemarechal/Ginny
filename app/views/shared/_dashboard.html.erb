@@ -10,11 +10,11 @@
 
 
 
-    <h3>Soignants sauvgardés</h3>
+    <h3 class="h6">Soignants sauvgardés</h3>
     <% current_user.favorites.includes(:doctor).each do |favorite| %>
       <ul>
-        <li><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
-        <li><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
+        <li class="black-color"><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
+        <li class="light-text"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
       </ul>
     <% end %>
     <hr>
