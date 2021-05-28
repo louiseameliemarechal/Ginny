@@ -1,29 +1,50 @@
-.badge {
 
-//   STRUCTURE
-//   <div class="badge">
-//     <div class="counter">
-//       2324
-//     </div>
-//    </div>
+.badge-list {
 
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  position:relative;
-  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 4px;
 
-  .counter {
-    color: white;
+  .badge-card {
+    padding: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .badge {
+
+  //   STRUCTURE
+  //   <div class="badge">
+  //     <div class="counter">
+  //       2324
+  //     </div>
+  //    </div>
+    padding: 4px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    background-color: $red;
-    font-size: 11px;
-    text-align: center;
-    line-height: 20px;
-    position: absolute;
-    right: -2px;
-    bottom: 43px;
+    position:relative;
+    background-color: black;
+
+    .counter {
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: $red;
+      font-size: 11px;
+      text-align: center;
+      line-height: 20px;
+      position: absolute;
+      right: -2px;
+      bottom: 43px;
+      }
+    }
+
+    p {
+      font-size: 0.8rem;
+      padding-top: 8px;
+    }
   }
 }
+
