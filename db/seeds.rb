@@ -72,7 +72,7 @@ doctors['records'].each do |record|
       longitude: longitude,
       street: street,
       city: city,
-      country: country
+      country: countrygaa
     ).first_or_initialize
 
       puts "#{new_doctor.first_name.capitalize} #{new_doctor.last_name.capitalize} created" if new_doctor.new_record?
