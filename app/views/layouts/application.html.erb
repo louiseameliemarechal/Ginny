@@ -14,12 +14,14 @@
 
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+  <%# Give each page a specific ID  %>
+  <%# Can be used to specify specific CSS components behavior %>
     <%= render 'shared/dashboard' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/recommendation' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
+
   </body>
 </html>
