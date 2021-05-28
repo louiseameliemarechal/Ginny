@@ -7,9 +7,9 @@
       </div>
       <div class="doctor-card-tag">
         <%= link_to doctor_favorites_path(@doctor), method: :post do %>
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart mb-2"></i>
         <% end %>
-        <div class='tag py-1 <%=@doctor.profession%>' >
+        <div class='tag p-2 <%=@doctor.profession%>' >
           <%= "#{@doctor.profession.capitalize}" %>
         </div>
       </div>
@@ -21,7 +21,7 @@
     <h4>Tags</h4>
     <div class="tag-list">
       <% @doctor.tags.uniq.each do |tag| %>
-        <div class="tag py-1 <%= tag.name %>">
+        <div class="tag p-2 mx-2 <%= tag.name %>">
           <p><%= tag.name %></p>
         </div>
       <% end %>
@@ -32,8 +32,10 @@
   <div class="box-bordered py-4 px-5">
     <h4>Badges de la communauté</h4>
     <div class="badge-list">
+
       <% @doctor.group_badges.each do |key, value| %>
-        <div class="badge-card">
+        <div class="badge-card mr-2">
+
           <div class="badge">
             <div class="counter">
               <%= value.size %>
@@ -59,5 +61,6 @@
       <p>Conventionné <%= "#{@doctor.convention}" %></p>
     </div>
   </div>
+  <%= render 'shared/footer' %>
 </div>
 

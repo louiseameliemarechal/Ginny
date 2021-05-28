@@ -13,16 +13,16 @@
     </div>
     <% end %>
 </div>
-
 <div class="container ginny-show px-4">
   <ul><% @profiles.each do |profile| %>
     <% if profile.photo.attached?%>
         <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
       <% end %>
-    <li><h1><%= link_to "#{profile.username }", profile_path(profile) %></h1></li>
+    <li><h1 class="h2"><%= link_to "#{profile.username }", profile_path(profile) %></h1></li>
   <% end %>
   </ul>
 </div>
+<%= render 'shared/footer' %>
 
 
 

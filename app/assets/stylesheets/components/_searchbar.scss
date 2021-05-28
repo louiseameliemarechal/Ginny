@@ -99,3 +99,39 @@
 .ap-icon-clear svg {
   transform: translate(-100%, -50%);
 }
+
+.form-group {
+  position: relative;
+
+  .pin {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(-50%, 25%);
+    z-index: 1000;
+  }
+}
+
+
+input.check_boxes {
+  height: 10px;
+  width: 10px;
+}
+.search_tags {
+  .form-check {
+    display: flex;
+    // flex-wrap: wrap-reverse;
+  }
+  label {
+    margin-left: 10px;
+  }
+}
+.search_badges {
+  .form-check {
+    display: flex;
+    // flex-wrap: wrap-reverse;
+  }
+  label {
+    margin-left: 10px;
+  }
+}
