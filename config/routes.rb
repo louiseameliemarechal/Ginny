@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/search', to: 'pages#search'
+  get '/search', to: 'profiles#search'
   get '/filtre', to: 'doctors#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :doctors, only: [:index, :show] do
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :favorites, only: [:destroy]
 
-  resources :profiles, only: [:show] do
+  resources :profiles, only: [:show, :index] do
     resources :friendships, only: [:create]
   end
   resources :friendships, only: [:destroy]
