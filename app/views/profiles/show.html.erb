@@ -1,4 +1,4 @@
-<div class="container ginny-show">
+<div class="container ginny-show px-4">
   <% if @profile.photo.attached?%>
     <%= cl_image_tag @profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
   <% end %>
