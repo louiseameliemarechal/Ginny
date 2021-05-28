@@ -10,3 +10,10 @@
 .mapboxgl-canvas {
   width: 100% !important;
 }
+
+#doctors-index .map-container {
+  position: sticky;
+    height: 300px;
+    top: 71px;
+    z-index: 1;
+}
