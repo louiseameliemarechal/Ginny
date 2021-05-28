@@ -1,11 +1,30 @@
-<div class='container show'>
-  <h4><%= "#{attribute(@doctor)} #{@doctor.first_name.capitalize} #{@doctor.last_name.capitalize}" %></h4>
+    <div class='box-bordered'>
+    <div class ='doctor-card'>
+      <div class="doctor-card-text">
+        <h4><%= "#{attribute(@doctor)} #{@doctor.first_name.capitalize} #{@doctor.last_name.capitalize}" %></h4>
+        <p><%= "#{@doctor.street}" %></p>
+        <p><%= "#{@doctor.city}" %></p>
+      </div>
+      <div class="doctor-card-tag">
+        <div class='tag py-1 <%=@doctor.profession%>' >
+          <%= "#{@doctor.profession.capitalize}" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p><%= "#{@doctor.street}" %></p>
-  <p><%= "#{@doctor.city}" %></p>
-  <hr>
-  <p><%= "#{@doctor.profession}" %></p>
-  <hr>
+  <div class="box-bordered py-4 px-5">
+    <h5>Spécialités</h5>
+    <% @doctor.badges.each do |badge| %>
+      <div class="badge">
+        <div class="counter">
+
+        </div>
+      </div>
+      <p><%= badge.name %></p>
+    <% end %>
+  </div>
+
 
   <h5>Tags</h5>
   <hr>

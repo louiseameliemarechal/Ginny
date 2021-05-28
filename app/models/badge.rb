@@ -1,6 +1,9 @@
 class Badge < ApplicationRecord
   has_many :badge_recos
-  validates :picto, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
+  def self.all_names
+    pluck(:name).uniq
+  end
 
 end
