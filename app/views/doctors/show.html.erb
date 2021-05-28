@@ -33,15 +33,16 @@
     <h4>Badges de la communauté</h4>
     <div class="badge-list">
       <% @doctor.group_badges.each do |key, value| %>
-        <div class="badge-card">
-          <div class="badge">
-            <div class="counter">
-              <%= value.size %>
-            </div>
+      <div class="badge-card">
+        <div class="my-badge">
+          <%= image_tag "badges/#{key}.jpg", size: 60 %>
+          <div class="counter">
+            <%= value.size %>
           </div>
-          <p><%= key.capitalize %></p>
-          </div>
-        <% end %>
+        </div>
+        <p><%= key.capitalize %></p>
+      </div>
+      <% end %>
     </div>
   </div>
 <%#
