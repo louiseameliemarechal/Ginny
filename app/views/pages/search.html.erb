@@ -1,57 +1,81 @@
-
-
 <%#= form_tag doctors_path, method: :get, data: { controller: "search-form" } do %>
-<%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
-  <%= f.input :speciality,
-    input_html: { value:  params[:speciality] },
-    class: "form-control",
-    placeholder: "La spécialité de mon praticien"
-  %>
+<div class="container pt-4 mt-4 pagination justify-content-center">
+  
+  <%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
+    <div class="row">
+      <div class="col align-self-enter">
+        <%= f.input :address,
+          input_html: { value:  params.dig(:search, :address) },
+          class: "form-control",
+          placeholder: "adresse",
+          label: "<i class='fas fa-map-marker-alt'></i>".html_safe
+        %>
+      </div>
+    </div>
 
- 
-<%= link_to 'Filtres avancés', '',
-  data: {
-    action: "click->search-form#showAdvancedFilters",
-    search_form_target: 'filtersBtn'
-  }  %>
+    <div class="row">
+      <div class="col align-self-enter">
+        <%= f.input :name_or_specialty,
+          input_html: { value:  params.dig(:search, :name_or_specialty) },
+          class: "form-control",
+          placeholder: "nom du praticien ou spécialité",
+          label: "<i class='fas fa-search'></i>".html_safe
+        %>
+      </div>
+    </div>
 
-  <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
+    <div class="row">
+      <div class="pt-4 mt-4 col align-self-enter">
+        <i class='fas fa-filter'></i>
+        <%= link_to 'Recherche avancée', '',
+          data: {
+            action: "click->search-form#showAdvancedFilters",
+            search_form_target: 'filtersBtn'
+          } %>
+      </div>
+    </div>
 
-    <%= f.input :gender,
-      collection: Doctor.genders,
-      input_html: { class: "form-control" },
-      placeholder: "Le genre de mon praticien" %>
+      <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
 
-    <%#= text_field_tag :gender,
-      params[:gender],
-      class: "form-control",
-      placeholder: "Le genre de mon praticien"
-    %>
-    <%= f.input :profession,
-      collection: Doctor.professions,
-      input_html: { class: "form-control" },
-      placeholder: "La profession de mon praticien" %>
+        <%= f.input :gender,
+          collection: Doctor.genders,
+          input_html: { class: "form-control" },
+          placeholder: "Le genre de mon praticien" %>
 
-    <%= f.input :convention,
-      collection: Doctor.conventions,
-      input_html: { class: "form-control" },
-      placeholder: "La convention de mon praticien" %>
+        <%#= text_field_tag :gender,
+          params[:gender],
+          class: "form-control",
+          placeholder: "Le genre de mon praticien"
+        %>
+        <%= f.input :profession,
+          collection: Doctor.professions,
+          input_html: { class: "form-control" },
+          placeholder: "La profession de mon praticien" %>
 
-     <%= f.input :tags,
-      as: :check_boxes,
-      collection: Tag.all_names,
-      input_html: { class: "form-control" },
-      placeholder: "Les tags de mon praticien" %>
+        <%= f.input :convention,
+          collection: Doctor.conventions,
+          input_html: { class: "form-control" },
+          placeholder: "La convention de mon praticien" %>
 
-     <%= f.input :badges,
-      as: :check_boxes,
-      collection: Badge.pluck(:picto),
-      input_html: { class: "form-control" },
-      placeholder: "Les tags de mon praticien" %>
+        <%= f.input :tags,
+          as: :check_boxes,
+          collection: Tag.all_names,
+          input_html: { class: "form-control" },
+          placeholder: "Les tags de mon praticien" %>
 
+        <%= f.input :badges,
+          as: :check_boxes,
+          collection: Badge.pluck(:picto),
+          input_html: { class: "form-control" },
+          placeholder: "Les tags de mon praticien" %>
+
+      </div>
+
+      <div class="pt-4 mt-4">
+        <%= f.submit :chercher, class: "button-main" %>
+        <%#= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+
+    <% end %>
   </div>
-
-  <%= f.submit :search, class: "btn btn-primary" %>
-  <%#= submit_tag "Search", class: "btn btn-primary" %>
-
-<% end %>
+</div>

@@ -29,6 +29,7 @@ Tag.create!(name: 'LGBT', picto: 'LGBT')
 puts "#{Tag.count} tags created"
 
 
+
   # Creation of Users
 user_1 = User.create!(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332')
 user_2 = User.create!(email: 'test2@test.com', username: 'Jeanne', password: '123456', phone_number: '0669151732')

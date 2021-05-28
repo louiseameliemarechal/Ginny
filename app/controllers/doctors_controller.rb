@@ -3,10 +3,18 @@ class DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
-
-    if params.dig(:search, :specialty).present?
-      @doctors = @doctors.where(specialty: params.dig(:search, :specialty))
+    
+    if params.dig(:search, :address).present?
+      @doctors = @doctors.near(params.dig(:search, :address), 10)
     end
+
+    if params.dig(:search, :name_or_specialty).present?
+      @doctors = @doctors.search_by_name_and_specialty(params.dig(:search, :name_or_specialty))
+    end
+
+    # if params.dig(:search, :specialty).present?
+    #  @doctors = @doctors.where(specialty: params.dig(:search, :specialty))
+    # end
 
     if params.dig(:search, :gender).present?
       @doctors = @doctors.where(gender: params.dig(:search, :gender)&.capitalize)
