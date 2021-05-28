@@ -97,6 +97,7 @@ User.all.each do |user|
     new_reco = Recommendation.create!(user: user, doctor: Doctor.all.sample )
     2.times do
       BadgeReco.create!(recommendation: new_reco, badge: Badge.all.sample)
+      TagReco.create!(recommendation: new_reco, tag: Tag.all.sample)
     end
   end
 end

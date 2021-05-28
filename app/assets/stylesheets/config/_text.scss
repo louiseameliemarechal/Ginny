@@ -1,13 +1,13 @@
 h1 {
   font-family: Staatliches;
-  font-size: 36px;
+  font-size: 2rem;
   line-height: 24px;
   color: $burgundy;
 }
 
 h2 {
   font-family: Domine;
-  font-size: 24px;
+  font-size: 2rem;
   line-height: 27px;
   text-align: center;
   color: $red;
@@ -15,14 +15,14 @@ h2 {
 
 h3 {
   font-family:  Domine!important;
-  font-size: 8px;
+  font-size: 0.8rem;
   line-height: 27px;
   color: $red;
 }
 
 h4 {
   font-family: Domine!important;
-  font-size: 14px;
+  font-size: 1.2rem;
   color: black;
 }
 
@@ -33,6 +33,7 @@ h5 {
 p {
   color:#000000;
   font-family: 'Domine';
+  font-size: 0.8rem
 }
 
 a {
@@ -45,7 +46,7 @@ a {
 }
 
 .light-text a {
-  font-size: 12px;
+  font-size: 1rem;
   color: $dark-grey !important;
   &:hover {
     color: $burgundy !important;

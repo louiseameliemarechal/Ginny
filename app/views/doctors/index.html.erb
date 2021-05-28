@@ -5,21 +5,24 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-<% @doctors.each do |doctor| %>
-  <div class='box-bordered'>
-    <div class ='doctor-card'>
-      <div class="doctor-card-text">
-        <h4><%= "#{attribute(doctor)} #{doctor.first_name.capitalize} #{doctor.last_name.capitalize}" %></h4>
-        <p><%= "#{doctor.street}" %></p>
-        <p><%= "#{doctor.city}" %></p>
-      </div>
-      <div class="doctor-card-tag">
-        <div class='tag py-1 <%=doctor.profession%>' >
-          <%= "#{doctor.profession.capitalize}" %>
+<div class="doctor-list">
+  <% @doctors.each do |doctor| %>
+    <div class='box-bordered'>
+      <div class ='doctor-card'>
+        <div class="doctor-card-text">
+          <h4>
+            <%= link_to "#{attribute(doctor)} #{doctor.first_name.capitalize} #{doctor.last_name.capitalize}", doctor_path(doctor)  %>
+          </h4>
+          <p><%= "#{doctor.street}" %></p>
+          <p><%= "#{doctor.city}" %></p>
+        </div>
+        <div class="doctor-card-tag">
+          <div class='tag py-1 <%=doctor.profession%>' >
+            <%= "#{doctor.profession.capitalize}" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
