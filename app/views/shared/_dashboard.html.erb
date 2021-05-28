@@ -10,7 +10,7 @@
 
 
 
-    <h3>Soignants sauvgardés</h3>
+    <h3 class="h6">Soignants sauvgardés</h3>
     <% current_user.favorites.includes(:doctor).each do |favorite| %>
       <ul>
         <li><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
