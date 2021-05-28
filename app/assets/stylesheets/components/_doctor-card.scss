@@ -3,25 +3,35 @@
   justify-content: space-between;
   padding: 12px 40px;
   position: relative;
+  padding-top: 20px;
 
   .doctor-card-text {
     flex-grow: 1;
-    h4 {
-      font-size: 14px;
-    }
 
     p {
       margin-bottom: -5px;
-      font-size: 12px;
+      font-size: 0.8rem;
       margin-right: 4px;
     }
   }
 
-  .tag {
-   margin-top: auto;
-   font-size: 11px;
-   margin-right: -12px;;
-   width: auto;
-   min-width: 80px;
+  .doctor-card-tag {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    i {
+      color: $red;
+      font-size: 30px;
+    }
+
+    .tag {
+     margin-top: auto;
+     font-size: 0.8rem;
+     margin-right: -12px;;
+     min-width: 80px;
+    }
   }
 }
+

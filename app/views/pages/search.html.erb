@@ -1,6 +1,5 @@
 <%#= form_tag doctors_path, method: :get, data: { controller: "search-form" } do %>
 <div class="container pt-4 mt-4 d-flex justify-content-center">
-  
   <%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
     <div class="row">
       <div class="col align-self-enter">
@@ -90,6 +89,22 @@
 
       <div class="pt-4 mt-4 d-flex justify-content-center">
         <%= f.submit :chercher, class: "button-main" %>
+
+        <%= f.input :tags,
+          collection: Tag.all_names,
+          input_html: { class: "form-control" },
+          placeholder: "Les tags de mon praticien" %>
+
+        <%= f.input :badges,
+          collection: Badge.pluck(:picto),
+          input_html: { class: "form-control" },
+          placeholder: "Les tags de mon praticien" %>
+
+      </div>
+
+      <div class="pt-4 mt-4 d-flex justify-content-center">
+        <%= f.submit :Chercher, class: "button-main" %>
+
         <%#= submit_tag "Search", class: "btn btn-primary" %>
       </div>
 

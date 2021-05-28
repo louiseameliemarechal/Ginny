@@ -1,11 +1,14 @@
-    <div class='box-bordered'>
-    <div class ='doctor-card'>
+  <div class='box-bordered'>
+    <div class ='doctor-card pb-4'>
       <div class="doctor-card-text">
         <h4><%= "#{attribute(@doctor)} #{@doctor.first_name.capitalize} #{@doctor.last_name.capitalize}" %></h4>
         <p><%= "#{@doctor.street}" %></p>
         <p><%= "#{@doctor.city}" %></p>
       </div>
       <div class="doctor-card-tag">
+        <%= link_to doctor_favorites_path(@doctor), method: :post do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
         <div class='tag py-1 <%=@doctor.profession%>' >
           <%= "#{@doctor.profession.capitalize}" %>
         </div>
@@ -13,35 +16,48 @@
     </div>
   </div>
 
-  <div class="box-bordered py-4 px-5">
-    <h5>Spécialités</h5>
-    <% @doctor.badges.each do |badge| %>
-      <div class="badge">
-        <div class="counter">
 
+  <div class="box-bordered py-4 px-5">
+    <h4>Tags</h4>
+    <div class="tag-list">
+      <% @doctor.tags.uniq.each do |tag| %>
+        <div class="tag py-1 <%= tag.name %>">
+          <p><%= tag.name %></p>
         </div>
-      </div>
-      <p><%= badge.name %></p>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
 
-  <h5>Tags</h5>
-  <hr>
+  <div class="box-bordered py-4 px-5">
+    <h4>Badges de la communauté</h4>
+    <div class="badge-list">
+      <% @doctor.badges.uniq.each do |badge| %>
+        <div class="badge-card">
+          <div class="badge">
+            <div class="counter">
+              <%= @doctor.badges.count %>
+            </div>
+          </div>
+          <p><%= badge.name.capitalize %></p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+<%#
+  <div class="box-bordered py-4 px-5">
+    <h4>Recommandé par</h4>
+    <div class="friends-list">
+    </div>
+  </div> %>
 
-  <h5>Les badges de la communauté</h5>
-  <hr>
-
-  <h5>Recommandé par</h5>
-  <hr>
-
-
-  <h5> Tarifs et remboursement</h5>
-  <p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
-  <p><%= "#{carte_vital(@doctor)}" %></p>
-  <p>Conventionné <%= "#{@doctor.convention}" %></p>
-
-  <%= link_to doctor_favorites_path(@doctor), method: :post do %>
-    <i class="fas fa-heart"></i>
-  <% end %>
+  <div class="box-bordered py-4 px-5">
+    <h4> Tarifs et remboursement</h4>
+    <div class="pricing-info py-3">
+      <p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
+      <p><%= "#{carte_vital(@doctor)}" %></p>
+      <p>Conventionné <%= "#{@doctor.convention}" %></p>
+    </div>
+  </div>
 </div>
+
