@@ -5,5 +5,4 @@ class Recommendation < ApplicationRecord
   has_many :badges, through: :badge_recos
   has_many :tag_recos
   has_many :tags, through: :tag_recos
-
 end
