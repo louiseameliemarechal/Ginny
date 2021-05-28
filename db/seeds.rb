@@ -20,6 +20,7 @@ require 'open-uri'
 Badge.create!(name: 'écoute', picto: 'écoute')
 Badge.create!(name: 'emphathie', picto: 'emphatie')
 Badge.create!(name: 'pédagogie', picto: 'pédagogie')
+Badge.create!(name: 'douceur', picto: 'douceur')
 puts "#{Badge.count} badges created"
   # Creation of Tags
 Tag.create!(name: 'IVG-friendly', picto: 'IVG-friendly')
@@ -93,14 +94,17 @@ end
 # Creation of Recommandations, Favorites, Badges & Tags for each User
 User.all.each do |user|
   Favorite.create!(user: user, doctor: Doctor.all.sample)
-  5.times do
-    new_reco = Recommendation.create!(user: user, doctor: Doctor.all.sample )
-    2.times do
-      BadgeReco.create!(recommendation: new_reco, badge: Badge.all.sample)
-      TagReco.create!(recommendation: new_reco, tag: Tag.all.sample)
-    end
+end
+
+puts "Users favorites created"
+
+Doctor.all.each do |doctor|
+  new_reco = Recommendation.create!(user: User.all.sample, doctor: doctor )
+  (1..4).to_a.sample.times do
+    BadgeReco.create!(recommendation: new_reco, badge: Badge.all.sample)
+    TagReco.create!(recommendation: new_reco, tag: Tag.all.sample)
   end
 end
-puts "Users recommendations & favorites created"
-puts "Some doctors have tags & labels now!"
+
+puts "All doctors have tags & labels now!"
 
