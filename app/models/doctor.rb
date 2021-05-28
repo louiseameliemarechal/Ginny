@@ -9,8 +9,8 @@ class Doctor < ApplicationRecord
   # after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
-  pg_search_scope :search_by_name_and_specialty, 
-    against: [ 
+  pg_search_scope :search_by_name_and_specialty,
+    against: [
       [:last_name, "A"],
       :first_name,
       :specialty
@@ -43,4 +43,7 @@ class Doctor < ApplicationRecord
     end.flatten
   end
 
+  def group_badges
+    badges.group_by(&:name)
+  end
 end

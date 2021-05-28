@@ -32,14 +32,16 @@
   <div class="box-bordered py-4 px-5">
     <h4>Badges de la communauté</h4>
     <div class="badge-list">
-      <% @doctor.badges.uniq.each do |badge| %>
+
+      <% @doctor.group_badges.each do |key, value| %>
         <div class="badge-card mr-2">
+
           <div class="badge">
             <div class="counter">
-              <%= @doctor.badges.count %>
+              <%= value.size %>
             </div>
           </div>
-          <p><%= badge.name.capitalize %></p>
+          <p><%= key.capitalize %></p>
           </div>
         <% end %>
     </div>
