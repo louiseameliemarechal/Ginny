@@ -1,5 +1,5 @@
 class RecommendationsController < ApplicationController
   def new
-    raise
+    @recommendation = Recommendation.new
   end
 end
