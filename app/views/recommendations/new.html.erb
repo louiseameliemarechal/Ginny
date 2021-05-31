@@ -1,0 +1,8 @@
+<div class="container pt-4 mt-4">
+  <h4>Ajouter une recommandation</h4>
+  <%= simple_form_for [@doctor, @recommendation] do |f| %>
+    <%= f.association :badges, as: :check_boxes %>
+    <%= f.association :tags, as: :check_boxes %>
+    <%= f.submit :Valider, class: "button-main mb-4"%>
+  <% end %>
+</div>

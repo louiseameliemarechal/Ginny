@@ -26,6 +26,9 @@
         </div>
       <% end %>
     </div>
+    <div class="d-flex justify-content-center pt-4">
+      <%= link_to "Attribuer un tag", new_doctor_recommendation_path(@doctor), :class => "text-secondary" %>
+    </div>
   </div>
 
 
@@ -43,7 +46,9 @@
           <p><%= key.capitalize %></p>
         </div>
       <% end %>
-      <%= link_to "Attribuer un badge", new_doctor_recommendation_path(@doctor) %>
+    </div>
+    <div class="d-flex justify-content-center pt-4">
+      <%= link_to "Attribuer un badge", new_doctor_recommendation_path(@doctor), :class => "text-secondary" %>
     </div>
   </div>
 <%#
