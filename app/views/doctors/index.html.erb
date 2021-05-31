@@ -11,7 +11,7 @@
       <div class ='doctor-card'>
         <div class="doctor-card-text">
           <h4>
-            <%= link_to "#{attribute(doctor)} #{doctor.first_name.capitalize} #{doctor.last_name.capitalize}", doctor_path(doctor)  %>
+            <%= link_to "#{attribute(doctor)} #{doctor.first_name.capitalize} #{doctor.last_name.capitalize}", doctor_path(doctor), :class => "stretched-link" %>
           </h4>
           <p><%= "#{doctor.street}" %></p>
           <p><%= "#{doctor.city}" %></p>
