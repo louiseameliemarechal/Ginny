@@ -9,6 +9,10 @@ export default class extends Controller {
     return document.getElementById('favorites-container');
   }
 
+  get navbarAvatar(){
+    return document.getElementById('navbar-avatar');
+  }
+
   favorite() {
     Rails.ajax({
       type: "post",
@@ -16,6 +20,8 @@ export default class extends Controller {
       success: (data) => {
         this.favoritesContainer.insertAdjacentHTML('beforeend', data.dashboard_favorite);
         this.fullHeart(data);
+
+        this.navbarAvatar.classList.add('notification');
       }
     })
   }
@@ -50,5 +56,4 @@ export default class extends Controller {
          data-favorite-target="heart"
          data-action="click->favorite#favorite"></i>`
   }
-
 }
