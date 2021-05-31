@@ -18,7 +18,10 @@
     .button-main {
       margin-left: auto;
       margin-right: auto;
+      padding: 0 !important;
     }
+  }
+  .form-group {
     .form-control {
       width: 467px;
     }
