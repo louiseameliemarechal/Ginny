@@ -2,4 +2,29 @@
   color: $red;
 }
 
-  
+.modal-header {
+  flex-direction: column;
+  border-bottom: none;
+  align-items: center;
+}
+
+#recommendationModal {
+  .modal-footer {
+    display: block;
+    label {
+      font-size: 0.9rem;
+      color: black;
+    }
+    .button-main {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 !important;
+    }
+  }
+  .form-group {
+    .form-control {
+      width: 467px;
+    }
+  }
+}
+ 
