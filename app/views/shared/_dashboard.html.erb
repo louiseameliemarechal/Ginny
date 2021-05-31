@@ -11,13 +11,11 @@
 
 
     <h3 class="h6">Soignants sauvgardés</h3><br>
-    <% current_user.favorites.includes(:doctor).each do |favorite| %>
-      <ul>
-        <li class="black-color smaller-text"><strong><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name}"%></strong></li>
-        <li class="black-color smaller-text"><%= favorite.doctor.profession %></li>
-        <li class= "smaller-text light-grey-color"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
-      </ul>
-    <% end %>
+    <div id="favorites-container">
+      <% current_user.favorites.includes(:doctor).each do |favorite| %>
+        <%= render 'shared/dashboard_favorite', favorite: favorite %>
+      <% end %>
+    </div>
     <hr>
     <%# <p><%= current_user.doctors</p> formule ok quand on aura fav doctors%>
 
