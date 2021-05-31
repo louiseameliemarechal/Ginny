@@ -32,19 +32,18 @@
   <div class="box-bordered py-4 px-5">
     <h4>Badges de la communauté</h4>
     <div class="badge-list">
-
       <% @doctor.group_badges.each do |key, value| %>
-      <div class="badge-card">
-        <div class="my-badge">
-          <%= image_tag "badges/#{key}.jpg", size: 60 %>
-          <div class="counter">
-            <%= value.size %>
-
+        <div class="badge-card">
+          <div class="my-badge">
+            <%= image_tag "badges/#{key}.jpg", size: 60 %>
+            <div class="counter">
+              <%= value.size %>
+            </div>
           </div>
+          <p><%= key.capitalize %></p>
         </div>
-        <p><%= key.capitalize %></p>
-      </div>
       <% end %>
+      <%= link_to "Attribuer un badge", new_doctor_recommendation_path(@doctor) %>
     </div>
   </div>
 <%#
