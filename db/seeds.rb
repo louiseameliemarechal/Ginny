@@ -11,7 +11,7 @@ require 'open-uri'
   Favorite.destroy_all
   Doctor.destroy_all
   puts "Doctors cleaned"
-  # Friendship.destroy_all
+  Friendship.destroy_all
   # Friendship clean with User dependent: :destroy
   User.destroy_all
   puts "Users cleaned"
