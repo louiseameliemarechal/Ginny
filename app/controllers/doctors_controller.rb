@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   # before_action :set_doctor, only: :edit
 
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.near('Paris', 1000)
 
     if params.dig(:search, :address).present?
       @doctors = @doctors.near(params.dig(:search, :address), 10)

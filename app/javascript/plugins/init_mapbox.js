@@ -25,7 +25,6 @@ const initMapbox = () => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
       const el = document.createElement('div') ;
       el.className = marker.icon ;
-      // el.style.backgroundImage = `url(app/assets/images/doctor_icons/${marker.icon}.png)`;
       new mapboxgl.Marker(el)
       .setLngLat([marker.longitude, marker.latitude])
       .setPopup(popup)
@@ -44,7 +43,7 @@ const addGeolocMarker = (map) => {
       positionOptions: {
         enableHighAccuracy: true
       },
-      fitBoundsOptions: { maxZoom: 8 },
+      fitBoundsOptions: { maxZoom: 11 },
       trackUserLocation: true
     })
   )
