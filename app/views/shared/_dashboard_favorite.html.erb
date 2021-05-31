@@ -1,0 +1,5 @@
+<ul data-favorite-id="<%= favorite.id %>">
+  <li class="black-color smaller-text"><strong><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name}"%></strong></li>
+  <li class="black-color smaller-text"><%= favorite.doctor.profession %></li>
+  <li class= "smaller-text light-grey-color"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
+</ul>
