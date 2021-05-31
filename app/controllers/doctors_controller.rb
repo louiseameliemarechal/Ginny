@@ -1,8 +1,8 @@
 class DoctorsController < ApplicationController
-  # before_action :set_doctor, only: :show
+  # before_action :set_doctor, only: :edit
 
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.near('Paris', 1000)
 
     if params.dig(:search, :address).present?
       @doctors = @doctors.near(params.dig(:search, :address), 10)
@@ -37,13 +37,23 @@ class DoctorsController < ApplicationController
     end
 
     @markers = @doctors.map do |doctor|
+      case doctor.profession
+      when "sage-femme"
+        icon = "sage-femme-w-icon"
+      when "généraliste"
+        icon = "generaliste-m-icon" if doctor.gender == "Homme"
+        icon = "generaliste-w-icon" if doctor.gender == "Femme"
+      when "gynécologue"
+        icon = "gyneco-m-icon" if doctor.gender == "Homme"
+        icon = "gyneco-w-icon" if doctor.gender == "Femme"
+      end
       {
         latitude: doctor.latitude,
         longitude: doctor.longitude,
+        icon: icon,
         info_window: render_to_string(partial: "marker_window", locals: { doctor: doctor })
       }
     end
-
   end
 
   def show
