@@ -1,5 +1,5 @@
 class RecommendationsController < ApplicationController
-  before_action :set_doctor, only[:new, :create]
+  before_action :set_doctor, only: [:new, :create]
 
   def new
     @recommendation = Recommendation.new

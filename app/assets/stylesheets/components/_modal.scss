@@ -10,7 +10,7 @@
 
 #recommendationModal {
   .modal-footer {
-    display: block;
+    display: inline;
     label {
       font-size: 0.9rem;
       color: black;
@@ -18,12 +18,12 @@
     .button-main {
       margin-left: auto;
       margin-right: auto;
-      padding: 0 !important;
+      line-height: 46px;
     }
   }
   .form-group {
     .form-control {
-      width: 467px;
+      width: 326px;
     }
   }
 }
