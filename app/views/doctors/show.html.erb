@@ -34,16 +34,17 @@
     <div class="badge-list">
 
       <% @doctor.group_badges.each do |key, value| %>
-        <div class="badge-card mr-2">
+      <div class="badge-card">
+        <div class="my-badge">
+          <%= image_tag "badges/#{key}.jpg", size: 60 %>
+          <div class="counter">
+            <%= value.size %>
 
-          <div class="badge">
-            <div class="counter">
-              <%= value.size %>
-            </div>
           </div>
-          <p><%= key.capitalize %></p>
-          </div>
-        <% end %>
+        </div>
+        <p><%= key.capitalize %></p>
+      </div>
+      <% end %>
     </div>
   </div>
 <%#

@@ -6,26 +6,24 @@
   padding-top: 4px;
 
   .badge-card {
-    padding: 0 5px;
+    padding: 0 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .badge {
-
+    .my-badge {
   //   STRUCTURE
   //   <div class="badge">
   //     <div class="counter">
-  //       2324
+  //       2324 
   //     </div>
   //    </div>
     padding: 4px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     position:relative;
-    background-color: black;
 
+    img {
+      border-radius: 50%;
+    }
     .counter {
       color: white;
       border-radius: 50%;
