@@ -1,12 +1,13 @@
 class RecommendationsController < ApplicationController
+  before_action :set_doctor, only[:new, :create]
+
   def new
-    @doctor = Doctor.find(params[:doctor_id])
     @recommendation = Recommendation.new
   end
 
   def create
     @user = current_user
-    @doctor = Doctor.find(params[:doctor_id])
+    Recommendation.find_by(user: @user, doctor: @doctor).destroy if Recommendation.find_by(user: @user, doctor: @doctor)
     @recommendation = Recommendation.new(recommendation_params)
     @recommendation.user = @user
     @recommendation.doctor = @doctor
@@ -21,6 +22,10 @@ class RecommendationsController < ApplicationController
   end
 
   private
+
+  def set_doctor
+    @doctor = Doctor.find(params[:doctor_id])
+  end
 
   def recommendation_params
     params.require(:recommendation).permit(badge_ids: [], tag_ids: [])
