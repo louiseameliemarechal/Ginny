@@ -48,8 +48,7 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
-    # @user = User.find(params[:id])
-    # @favorite = current_user.favorites.find_by(user_id: params[:id])
+    # @favorite = Favorite.find(params[:id])
   end
 
   private
