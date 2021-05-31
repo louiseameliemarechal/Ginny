@@ -1,0 +1,22 @@
+#footer {
+  height: 75px;
+}
+
+.footer-link {
+  font-size: 30px;
+  color: #470700 !important;
+  width: calc(100% / 5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  // padding-top: 20px;
+  // padding-bottom: 20px;
+  border-top: 6px solid transparent;
+}
+.active-footer-link {
+  border-color: #90381B;;
+  // i {
+  //   color: #90381B;
+  // }
+}
