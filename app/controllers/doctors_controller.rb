@@ -3,7 +3,7 @@ class DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
-    
+
     if params.dig(:search, :address).present?
       @doctors = @doctors.near(params.dig(:search, :address), 10)
     end
@@ -48,6 +48,8 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    # @user = User.find(params[:id])
+    # @favorite = current_user.favorites.find_by(user_id: params[:id])
   end
 
   private
