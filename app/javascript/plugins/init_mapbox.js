@@ -4,29 +4,40 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
-  if (mapElement) { // only build a map if there's a div#map to inject into
+  // Create the map & center it
+  if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
+      // style: 'mapbox://styles/mapbox/light-v11',
       style: 'mapbox://styles/melaurore/ckp484rvd83wp18k8nuf0zqfx',
+      // center: [-90.96, -0.47],
+      center: [2.35, 48.85],
+      // Paris coordinates
+      zoom: 11
     });
-
 
     const markers = JSON.parse(mapElement.dataset.markers);
 
     if (markers.length === 0) return;
     markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window); // add this
-      new mapboxgl.Marker()
+       // Place the markers on the map
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+      const el = document.createElement('div') ;
+      el.className = marker.icon ;
+      // el.style.backgroundImage = `url(app/assets/images/doctor_icons/${marker.icon}.png)`;
+      new mapboxgl.Marker(el)
       .setLngLat([marker.longitude, marker.latitude])
-      .setPopup(popup) // add this
+      .setPopup(popup)
       .addTo(map);
     });
     addGeolocMarker(map)
-    fitMapToMarkers(map, markers);
+    // fitMapToMarkers(map, markers);
   }
+
 };
 
+// Add the geolocalisation button
 const addGeolocMarker = (map) => {
   map.addControl(
     new mapboxgl.GeolocateControl({
@@ -38,6 +49,7 @@ const addGeolocMarker = (map) => {
     })
   )
 };
+
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();

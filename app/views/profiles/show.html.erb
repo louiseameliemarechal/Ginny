@@ -5,7 +5,7 @@
 
   <h1><%= @profile.username %></h1>
 
-  <p><%= pluralize(@profile.friendships.count, 'ami', 'amis')%></p>
+  <p><%= pluralize(@profile.friendships.count, 'ami.e', 'ami.e.s')%></p>
 
 
   <% unless @profile == current_user %>
