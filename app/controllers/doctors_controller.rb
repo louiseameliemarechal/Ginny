@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  # before_action :set_doctor, only: :show
+  # before_action :set_doctor, only: :edit
 
   def index
     @doctors = Doctor.all
@@ -43,7 +43,6 @@ class DoctorsController < ApplicationController
         info_window: render_to_string(partial: "marker_window", locals: { doctor: doctor })
       }
     end
-
   end
 
   def show
