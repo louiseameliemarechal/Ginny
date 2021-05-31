@@ -4,7 +4,7 @@
       <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
     <% end %>
     <h1><%= current_user.username %></h1>
-    <p><%= pluralize(current_user.friendships.count, 'ami', 'amis')%></p>
+    <p><%= pluralize(current_user.friendships.count, 'ami.e', 'ami.e.s')%></p>
     <%# <%= current_user.recommendations.count%>
     <p>x recommandations</p><br>
 
