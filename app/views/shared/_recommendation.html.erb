@@ -8,8 +8,8 @@
         <h4 class="modal-title" id="exampleModalLabel">Ajouter une recommandation</h4>
       </div>
       <div class="modal-body">
-        <p data-modal-target="message">Merci de n’ajouter une recommandation de soignant que si tu l’as toi-même consulté et que tu souhaites le recommander à tes amis. <br>Autrement, tu peux le mettre en favoris.</p>
-      
+        <p data-modal-target="message">Merci de n’ajouter une recommandation de soignant.e que si tu l’as toi-même consulté.e et que tu souhaites le recommander à tes amis. <br>Autrement, tu peux le mettre en favoris.</p>
+
         <div class="d-none" data-modal-target="searchForm">
           <%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
 
@@ -30,11 +30,11 @@
             </div>
 
           <% end %>
-        </div>      
-      
+        </div>
+
       </div>
       <div class="modal-footer p-4" data-modal-target="footer">
-        <input type="checkbox" id="opt-in" data-modal-target="checkbox"><label for="opt-in" data-modal-target="label">Oui, je recommande un soignant que j'ai consulté</label>
+        <input type="checkbox" id="opt-in" data-modal-target="checkbox"><label for="opt-in" data-modal-target="label">Oui, je recommande un.e soignant.e que j'ai consulté.e</label>
         <div class="button-main" data-action="click->modal#change">Suivant</div>
         <div class="d-none"><%= link_to 'Suivant', search_path, data: { modal_target: 'nextButton' } %></div>
       </div>
