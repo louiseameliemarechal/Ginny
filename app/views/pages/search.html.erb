@@ -44,10 +44,9 @@
               label: "Genre du praticien.ne",
               input_html: { checked: true },
               collection: Doctor.genders,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'gender-wrapper',
-              item_wrapper_class: 'gender-item',
-              input_html: {class: 'gender-selector'},
+              wrapper_html: { class: "tag-list" },
+              input_html: { class: "form-control tag-selector" },
+              item_wrapper_class: 'tag-card tag',
               required: false
             %>
 
@@ -70,7 +69,7 @@
               collection_wrapper_class: 'convention-wrapper',
               item_wrapper_class: 'convention-item',
               input_html: {class: 'convention-selector'},
-              collection: Doctor.conventions,
+              collection: Doctor.order(:convention).conventions,
               required: false
             %>
 

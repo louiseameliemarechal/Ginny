@@ -5,8 +5,6 @@
 }
 // Convention
 
-
-
 .convention-item {
   width: max-content;
 }
@@ -30,56 +28,7 @@
 
 .convention-selector:checked + label {
   color: black !important;
-  background-color: $grey;
-}
-
-
-// Gender
-
-.gender-wrapper {
-  display: flex;
-  justify-content: center;
-  border: 1px solid #C4C4C4;
-  border-radius: 50px;
-}
-
-.gender-item {
-  flex: 1;
-  display: flex;
-}
-
-.gender-selector {
-  position: absolute;
-  transform: scale(0);
-}
-
-.gender-selector + label {
-  display: block;
-  cursor: pointer;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 10px 10px;
-  background-color: white;
-  color: black;
-
-  &[for="search_gender_homme"] {
-    border-bottom-left-radius: 50px;
-    border-top-left-radius: 50px;
-    border: none;
-  }
-
-   &[for="search_gender_femme"] {
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 50px;
-    border: none;
-  }
-}
-
-.gender-selector:checked + label {
-  color: white !important;
-  background-color: $burgundy;
+  background-color: $tag-blue-grey;
 }
 
 
@@ -182,7 +131,24 @@ label[for="search_profession_sage-femme"]::before {
   background-color: $tag-orange;
 }
 
+label[for="search_gender_femme"]::before {
+  width: 62px;
+  margin-left: -10px;
+}
 
+.tag-selector:checked + label[for="search_gender_femme"]::before {
+  background-color: $tag-blue-grey
+}
+
+
+label[for="search_gender_homme"]::before {
+  width: 62px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_gender_homme"]::before {
+  background-color: $tag-blue-grey
+}
 
 // Bagdges
 

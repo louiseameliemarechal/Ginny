@@ -7,18 +7,20 @@
         </button>
         <h4 class="modal-title" id="exampleModalLabel">Ajouter une recommandation</h4>
       </div>
-      <div class="modal-body">
-        <p data-modal-target="message">Merci de n’ajouter une recommandation de soignant.e que si tu l’as toi-même consulté.e et que tu souhaites le recommander à tes amis. <br>Autrement, tu peux le mettre en favoris.</p>
+      <div class="modal-body px-4">
+        <p data-modal-target="message">Merci de n’ajouter une recommandation de soignant.e que si tu l’as toi-même consulté.e et que tu souhaites le recommander à tes amis.
+          <br>Autrement, tu peux le mettre en favoris.
+        </p>
 
         <div class="d-none" data-modal-target="searchForm">
           <%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
 
             <div class="row d-flex justify-content-center">
-              <div class="col align-self-enter">
+              <div class="col align-self-enter d-flex">
                 <%= f.input :name_or_specialty,
                   input_html: { value:  params.dig(:search, :name_or_specialty) },
                   class: "form-control",
-                  placeholder: "Nom du praticien ou spécialité",
+                  placeholder: "Nom du praticien.ne ou spécialité",
                   label: "<i class='fas fa-search text-primary pin'></i>".html_safe,
                   required: false
                 %>
@@ -34,9 +36,14 @@
 
       </div>
       <div class="modal-footer p-4" data-modal-target="footer">
-        <input type="checkbox" id="opt-in" data-modal-target="checkbox"><label for="opt-in" data-modal-target="label">Oui, je recommande un.e soignant.e que j'ai consulté.e</label>
+        <div class="d-flex align-items-center">
+          <input class="p-3" type="checkbox" id="opt-in" data-modal-target="checkbox">
+          <label class="p-3" for="opt-in" data-modal-target="label">Oui, je recommande un.e soignant.e que j'ai consulté.e</label>
+        </div>
         <div class="button-main" data-action="click->modal#change">Suivant</div>
-        <div class="d-none"><%= link_to 'Suivant', search_path, data: { modal_target: 'nextButton' } %></div>
+        <div class="d-none">
+          <%= link_to 'Suivant', search_path, data: { modal_target: 'nextButton' } %>
+        </div>
       </div>
     </div>
   </div>
