@@ -1,4 +1,5 @@
 <div id='dashboard' class='hidden'>
+  <div class="dashboard-infos">
   <% if user_signed_in? %>
     <% if current_user.photo.attached?%>
       <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
@@ -7,23 +8,23 @@
     <p><%= pluralize(current_user.friendships.count, 'ami.e', 'ami.e.s')%></p>
     <%# <%= current_user.recommendations.count%>
     <p>x recommandations</p><br>
+  </div>
 
 
 
-    <h3 class="h6">Soignants sauvgardés</h3><br>
-    <% current_user.favorites.includes(:doctor).each do |favorite| %>
-      <ul>
-        <li class="black-color smaller-text"><strong><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name}"%></strong></li>
-        <li class="black-color smaller-text"><%= favorite.doctor.profession %></li>
-        <li class= "smaller-text light-grey-color"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
-      </ul>
-    <% end %>
+    <h3 class="h6"><u>Soignants sauvgardés</u></h3>
+    <div id="favorites-container">
+      <% current_user.favorites.includes(:doctor).each do |favorite| %>
+        <%= render 'shared/dashboard_favorite', favorite: favorite %>
+      <% end %>
+    </div>
     <hr>
     <%# <p><%= current_user.doctors</p> formule ok quand on aura fav doctors%>
-
-    <%= link_to 'Edit', edit_user_registration_path%><br>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-  <% end %>
+  <div class="dashboard-actions">
+      <%= link_to 'Edit', edit_user_registration_path%><br>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
+  </div>
 </div>

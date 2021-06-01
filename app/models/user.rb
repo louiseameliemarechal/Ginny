@@ -13,4 +13,14 @@ class User < ApplicationRecord
   # validates :phone_number, presence: true, uniqueness: true, format: { with: /0[6-7]\d{8}/, message: "format invalide" }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def favorite_doctor?(doctor)
+    favorites.pluck(:doctor_id).include?(doctor.id)
+  end
+
+  def favorite(doctor)
+    favorites.find_by(doctor: doctor)
+  end
+
+
 end

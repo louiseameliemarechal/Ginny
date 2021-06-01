@@ -5,10 +5,18 @@
         <p><%= "#{@doctor.street}" %></p>
         <p><%= "#{@doctor.city}" %></p>
       </div>
-      <div class="doctor-card-tag">
-        <%= link_to doctor_favorites_path(@doctor), method: :post do %>
-          <i class="fas fa-heart mb-2"></i>
-        <% end %>
+      <div class="doctor-card-tag"
+           data-controller="favorite"
+           data-favorite-doctor-value="<%= @doctor.id %>"
+           <%# data-favorite-favorite-value="<%= @doctor.favorites.ids %>" %>
+          <div data-favorite-target="heart">
+            <% if current_user.favorite_doctor?(@doctor) %>
+              <i class="fas fa-heart mb-2" data-action="click->favorite#unfavorite" data-id="<%= current_user.favorite(@doctor)&.id %>"></i>
+            <% else %>
+               <i class="far fa-heart mb-2" data-action="click->favorite#favorite"></i>
+            <% end %>
+          </div>
+        <%# end %>
         <div class='tag p-2 <%=@doctor.profession%>' >
           <%= "#{@doctor.profession.capitalize}" %>
         </div>
@@ -25,6 +33,9 @@
           <p><%= tag.name %></p>
         </div>
       <% end %>
+    </div>
+    <div class="d-flex justify-content-center pt-4">
+      <%= link_to "Attribuer un tag", new_doctor_recommendation_path(@doctor), :class => "text-secondary" %>
     </div>
   </div>
 
@@ -43,7 +54,9 @@
           <p><%= key.capitalize %></p>
         </div>
       <% end %>
-      <%= link_to "Attribuer un badge", new_doctor_recommendation_path(@doctor) %>
+    </div>
+    <div class="d-flex justify-content-center pt-4">
+      <%= link_to "Attribuer un badge", new_doctor_recommendation_path(@doctor), :class => "text-secondary" %>
     </div>
   </div>
 <%#
@@ -61,6 +74,5 @@
       <p>Conventionné <%= "#{@doctor.convention}" %></p>
     </div>
   </div>
-  <%= render 'shared/footer' %>
 </div>
 

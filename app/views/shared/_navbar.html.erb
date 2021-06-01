@@ -2,8 +2,9 @@
   <%= link_to doctors_path, class: "navbar-brand " do %>
    <%= image_tag 'Ginny_logo.png' %>
   <% end %>
+
   <% if user_signed_in? %>
-    <div class="nav-item dropdown">
+    <div class="nav-item dropdown" id="navbar-avatar">
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown"%>
       <% else %>
