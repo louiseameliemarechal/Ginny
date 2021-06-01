@@ -1,0 +1,256 @@
+
+
+.form-group {
+  padding-top: 12px;
+}
+// Convention
+
+
+
+.convention-item {
+  width: max-content;
+}
+
+.convention-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.convention-selector + label {
+  color: $dark-grey;
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 0.7rem;
+  text-align: left;
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+
+.convention-selector:checked + label {
+  color: black !important;
+  background-color: $grey;
+}
+
+
+// Gender
+
+.gender-wrapper {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #C4C4C4;
+  border-radius: 50px;
+}
+
+.gender-item {
+  flex: 1;
+  display: flex;
+}
+
+.gender-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.gender-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px 10px;
+  background-color: white;
+  color: black;
+
+  &[for="search_gender_homme"] {
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border: none;
+  }
+
+   &[for="search_gender_femme"] {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border: none;
+  }
+}
+
+.gender-selector:checked + label {
+  color: white !important;
+  background-color: $burgundy;
+}
+
+
+// Tags
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  color: black;
+  font-size: 0.7rem;
+  z-index: 99;
+  position: relative;
+
+   &:before {
+    content: "";
+    height: 24px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+}
+
+.tag-selector:not(:checked) + label {
+  color: $dark-grey;
+}
+
+label[for="search_tags_endométriose"]::before {
+  width: 98px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_endométriose"]::before {
+  background-color: $tag-marroon;
+}
+
+label[for="search_tags_ivg-friendly"]::before {
+  width: 90px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_ivg-friendly"]::before {
+  background-color: $tag-yellow;
+}
+
+label[for="search_tags_diu"]::before {
+  width: 40px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_diu"]::before {
+  background-color: $tag-grey;
+}
+
+label[for="search_tags_lgbt"]::before {
+  width: 52px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_lgbt"]::before {
+  background-color: $tag-pink;
+}
+
+label[for="search_profession_généraliste"]::before {
+  width: 80px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_profession_généraliste"]::before {
+  background-color: $tag-green;
+}
+
+label[for="search_profession_gynécologue"]::before {
+  width: 80px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_profession_gynécologue"]::before {
+  background-color: $tag-yellow;
+}
+
+label[for="search_profession_sage-femme"]::before {
+  width: 80px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_profession_sage-femme"]::before {
+  background-color: $tag-orange;
+}
+
+
+
+// Bagdges
+
+
+.badge-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.badge-list {
+  display: flex;
+}
+
+.badge-card {
+  width: 30%;
+}
+
+.badge-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  color: black;
+}
+.badge-selector:not(:checked) + label {
+  filter: grayscale(100%);
+  color: $dark-grey;
+}
+
+.badge-card label {
+  position: relative;
+  padding-top: 70px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+
+  &:before {
+    content: "";
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+label[for="search_badges_écoute"]::before {
+    background-image: url(badges/écoute.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+label[for="search_badges_empathie"]::before {
+    background-image: url(badges/empathie.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+label[for="search_badges_pédagogie"]::before {
+    background-image: url(badges/pédagogie.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.badge-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}

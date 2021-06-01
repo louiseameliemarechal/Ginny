@@ -40,47 +40,58 @@
           <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
 
             <%= f.input :gender,
+              as: :radio_buttons,
               collection: Doctor.genders,
-              input_html: { class: "form-control" },
-              placeholder: "Le genre de mon praticien",
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'gender-wrapper',
+              item_wrapper_class: 'gender-item',
+              input_html: {class: 'gender-selector'},
               required: false
             %>
 
             <%= f.input :profession,
+              as: :check_boxes,
               collection: Doctor.professions,
-              input_html: { class: "form-control" },
-              placeholder: "La profession de mon praticien.ne",
+              wrapper_html: { class: "tag-list" },
+              input_html: { class: "form-control tag-selector" },
+              item_wrapper_class: 'tag-card tag',
               required: false
             %>
 
             <%= f.input :convention,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'convention-wrapper',
+              item_wrapper_class: 'convention-item',
+              input_html: {class: 'convention-selector'},
               collection: Doctor.conventions,
-              input_html: { class: "form-control" },
-              placeholder: "La convention de mon praticien.ne",
               required: false
             %>
 
             <%= f.input :tags,
               as: :check_boxes,
               collection: Tag.all_names,
-              input_html: { class: "form-control" },
-              placeholder: "Les tags de mon praticien.ne",
+              wrapper_html: { class: "tag-list" },
+              input_html: { class: "form-control tag-selector" },
+              item_wrapper_class: 'tag-card tag',
               required: false
             %>
 
             <%= f.input :badges,
               as: :check_boxes,
               collection: Badge.pluck(:picto),
-              input_html: { class: "form-control" },
-              placeholder: "Les tags de mon praticien.ne",
+              wrapper_html: { class: "badge-list" },
+              input_html: { class: "form-control badge-selector" },
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'badge-wrapper',
+              item_wrapper_class: 'badge-card',
               required: false
             %>
-
           </div>
         </div>
       </div>
 
-      <div class="pt-4 mt-4 d-flex justify-content-center">
+      <div class="d-flex justify-content-center" style="margin-bottom: 14vh;">
         <%= f.submit :Chercher, class: "button-main mb-4" %>
       </div>
 

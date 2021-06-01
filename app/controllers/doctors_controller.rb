@@ -2,7 +2,7 @@ class DoctorsController < ApplicationController
   # before_action :set_doctor, only: :edit
 
   def index
-    @doctors = Doctor.near('Paris', 1000)
+    @doctors = Doctor.near('Paris', 10000)
 
     if params.dig(:search, :address).present?
       @doctors = @doctors.near(params.dig(:search, :address), 10)
@@ -58,6 +58,7 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @backlink = params[:backlink]
     # @favorite = Favorite.find(params[:id])
   end
 

@@ -15,6 +15,7 @@ class FavoritesController < ApplicationController
     # doctor_favorites = Doctor.find(params[:id]).favorites
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
+    redirect_to doctors_path
   end
 
   private

@@ -80,8 +80,9 @@ doctors['records'].each do |record|
 
     new_doctor.specialty = record['fields']['nom_acte']
     # new_doctor.profession = record['fields']['libelle_profession']
-    new_doctor.profession = ["généraliste", "sage-femme", "gynécologue"].sample
-    new_doctor.convention = record['fields']['column_14']
+    new_doctor.profession = ["généraliste", "sage-femme", "gynécologue"].sample.capitalize
+    new_doctor.convention = record['fields']['column_14'].delete(',')
+    # Remove the "," from the convention string
     new_doctor.gender = record['fields']['civilite']
     new_doctor.average_number = record['fields']['tarif_2']
     new_doctor.carte_vital = record['fields']['column_16']

@@ -106,7 +106,7 @@
   .pin {
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 55%;
     transform: translate(-50%, 25%);
     z-index: 1000;
   }
@@ -132,6 +132,6 @@ input.check_boxes {
     // flex-wrap: wrap-reverse;
   }
   label {
-    margin-left: 10px;
+    // margin-left: 10px;
   }
 }
