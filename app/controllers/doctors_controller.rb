@@ -15,7 +15,7 @@ class DoctorsController < ApplicationController
     # if params.dig(:search, :specialty).present?
     #  @doctors = @doctors.where(specialty: params.dig(:search, :specialty))
     # end
-
+    raise
     if params.dig(:search, :gender).present?
       @doctors = @doctors.where(gender: params.dig(:search, :gender)&.capitalize)
     end

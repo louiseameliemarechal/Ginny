@@ -48,7 +48,7 @@
   background: white;
   border: 2px solid $lighter-grey;
   border-radius: 50px;
-  width: 350px;
+  // width: 350px;
   height: 60px;
   justify-content: space-between;
   position: relative;
@@ -122,9 +122,9 @@ input.check_boxes {
     display: flex;
     // flex-wrap: wrap-reverse;
   }
-  label {
-    margin-left: 10px;
-  }
+  // label {
+  //   margin-left: 10px;
+  // }
 }
 .search_badges {
   .form-check {
