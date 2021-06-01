@@ -301,3 +301,20 @@
   }
 }
 
+.button-add-friends {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color:white;
+  font-family: Domine;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  width: 250px;
+  height: 65px;
+  border: 2px solid #8F1B1B;
+  padding: 4px;
+}
