@@ -58,6 +58,8 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @backlink = params[:backlink]
+    # @favorite = Favorite.find(params[:id])
   end
 
   private

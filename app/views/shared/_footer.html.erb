@@ -6,17 +6,31 @@
     <i class="fas fa-plus-circle reco-button"></i>
   </a>
 </li> %>
-<div class="py-4 px-5 d-flex align-items-center justify-content-between position-fixed w-100" style="z-index: 10; bottom: 0; background-color: #F7F1ED;">
-  <a href="#" data-toggle="modal" data-target="#recommendationModal" class="nav-link p-0">
-    <i class="fas fa-plus-circle" style="font-size: 30px; color: #470700;"></i>
+<div id="footer" class="d-flex align-items-center justify-content-between position-fixed w-100" style="z-index: 10; bottom: 0; background-color: #F7F1ED;">
+
+  <%= link_to doctors_path, class: "footer-link #{"active-footer-link" if (current_page?(doctors_path) && params[:search].nil?) ||
+  (action_name == 'show' && controller_name == 'doctors' && @backlink == 'home') }" do %>
+    <i class="fas fa-home"></i>
+  <% end %>
+
+  <a href="#" data-toggle="modal" class=footer-link data-target="#recommendationModal" class="nav-link p-0">
+    <i class="fas fa-plus-circle"></i>
   </a>
-  <%= link_to search_path do %>
-    <i class="fas fa-search" style="font-size: 30px; color: #470700;"></i>
+
+  <%= link_to search_path, class: "footer-link #{"active-footer-link" if current_page?(search_path) ||
+  (action_name == 'show' && controller_name == 'doctors' && @backlink == 'filtered') ||
+  (current_page?(doctors_path) && params[:search])}" do %>
+    <i class="fas fa-search"></i>
   <% end %>
-  <i class="fab fa-readme" style="font-size: 30px; color: #470700;"></i>
-  <%= link_to profiles_path do %>
-    <i class="fas fa-users" style="font-size: 30px; color: #470700;"></i>
+
+  <%= link_to "", class: "footer-link" do %>
+    <i class="far fa-file-alt" style="font-size: 30px; color: #470700;"></i>
   <% end %>
+
+  <%= link_to profiles_path, class: "footer-link #{"active-footer-link" if current_page?(profiles_path)}" do %>
+    <i class="fas fa-users"></i>
+  <% end %>
+
 </div>
 
   <%# <%= link_to "<i class='fas fa-search' style='font-size: 30px; color: 470700;'".html_safe, search_path %>

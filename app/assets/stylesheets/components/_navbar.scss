@@ -35,3 +35,17 @@
   top: 0;
 }
 
+.notification {
+  position: relative;
+  &:after {
+    left: 28px;
+    top: -2px;
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: $green;
+    text-align: center;
+  }
+}

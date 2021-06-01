@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <title>Ginny</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,10 +14,12 @@
     <link href="https://fonts.googleapis.com/css?family=Staatliches:regular" rel="stylesheet" />
     <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
 
   </head>
 
-  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>" style="min-height: 100vh;">
   <%# Give each page a specific ID  %>
   <%# Can be used to specify specific CSS components behavior %>
     <%= render 'shared/dashboard' %>
@@ -22,6 +27,6 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/recommendation' %>
     <%= yield %>
-
+    <%= render 'shared/footer' %>
   </body>
 </html>
