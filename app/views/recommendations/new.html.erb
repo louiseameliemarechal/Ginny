@@ -1,8 +1,16 @@
 <div class="container pt-4 mt-4">
-  <h4>Ajouter une recommandation</h4>
-  <%= simple_form_for [@doctor, @recommendation] do |f| %>
-    <%= f.association :badges, as: :check_boxes %>
-    <%= f.association :tags, as: :check_boxes %>
-    <%= f.submit :Valider, class: "button-main mb-4"%>
-  <% end %>
+  <div class="row d-flex justify-content-center box-bordered py-4 px-5">
+    <h4>Ajouter une recommandation</h4>
+  </div>
+  <div class="row d-flex justify-content-center box-bordered py-4 px-5">
+    <%= simple_form_for [@doctor, @recommendation] do |f| %>
+      <%= f.association :tags, as: :check_boxes, collection: @doctor.tags %>
+      <%= f.association :badges, 
+            as: :check_boxes,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            label_method: lambda { |badge| render 'badges/picto', badge: badge } %>
+      <%= f.submit :Valider, class: "button-main my-4"%>
+    <% end %>
+  </div>
 </div>
