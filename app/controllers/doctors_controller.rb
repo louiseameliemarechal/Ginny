@@ -15,24 +15,24 @@ class DoctorsController < ApplicationController
     # if params.dig(:search, :specialty).present?
     #  @doctors = @doctors.where(specialty: params.dig(:search, :specialty))
     # end
-    raise
-    if params.dig(:search, :gender).present?
+
+    if params.dig(:search, :gender)&.first.present?
       @doctors = @doctors.where(gender: params.dig(:search, :gender)&.capitalize)
     end
 
-    if params.dig(:search, :profession).present?
+    if params.dig(:search, :profession)&.first.present?
       @doctors = @doctors.where(profession: params.dig(:search, :profession))
     end
 
-    if params.dig(:search, :convention).present?
+    if params.dig(:search, :convention)&.first.present?
       @doctors = @doctors.where(convention: params.dig(:search, :convention))
     end
 
-    if params.dig(:search, :tags).present? && params.dig(:search, :tags).reject(&:empty?).present?
+    if params.dig(:search, :tags)&.first.present? && params.dig(:search, :tags).reject(&:empty?).present?
       @doctors = @doctors.joins(:tags).where(tags: {name: params[:search][:tags].reject(&:empty?)})
     end
 
-    if params.dig(:search, :badges).present? && params.dig(:search, :badges).reject(&:empty?).present?
+    if params.dig(:search, :badges)&.first.present? && params.dig(:search, :badges).reject(&:empty?).present?
       @doctors = @doctors.joins(:badges).where(badges: {picto: params[:search][:badges].reject(&:empty?)})
     end
 
