@@ -1,12 +1,12 @@
-<div class="container pt-4 mt-4 pagination justify-content-center">
 
+<div class=" container pt-4 mt-4 pagination justify-content-center">
   <%= simple_form_for :search, url: profiles_path, method: :get, data: { controller: "search-form" } do |f| %>
     <div class="row">
       <div class="col align-self-enter">
         <%= f.input :username,
           input_html: { value:  params.dig(:search, :username) },
           class: "form-control",
-          placeholder: "Rechercher un ami.e",
+          placeholder: "Rechercher un.e ami.e ou membre",
           label: false
         %>
       </div>
@@ -15,12 +15,15 @@
 </div>
 <div class="container ginny-show px-4">
   <ul><% @profiles.each do |profile| %>
+ <div class= "profil-details">
     <% if profile.photo.attached?%>
-        <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
-      <% end %>
-    <li><h1 class="h2"><%= link_to "#{profile.username }", profile_path(profile) %></h1></li>
+      <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+    <% end %>
+    <li><h1 class="h2"><%= link_to "#{profile.username }", profile_path(profile) %></h1></li> </div>
   <% end %>
   </ul>
-</div>
 
+ <a href="https://www.w3schools.com" class="button-add-friends">Link Button</a>
+
+</div>
 
