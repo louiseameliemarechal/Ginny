@@ -19,7 +19,7 @@
 
   </head>
 
-  <body id="<%= controller.controller_name %>-<%= controller.action_name %>" style="min-height: 100vh;">
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>" style="min-height: 100vh;" class="<%= 'bg-light-pink' if controller_name == "profiles" %>">
   <%# Give each page a specific ID  %>
   <%# Can be used to specify specific CSS components behavior %>
     <%= render 'shared/dashboard' %>

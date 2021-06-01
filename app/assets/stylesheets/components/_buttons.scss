@@ -302,10 +302,11 @@
 }
 
 .button-add-friends {
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 25px;
   background-color:white;
-  display: block;
   font-family: Domine;
   font-size: 16px;
   line-height: 18px;

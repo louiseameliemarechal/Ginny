@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
   end
   resources :friendships, only: [:destroy]
+  resources :invites, only: [:new, :create]
 
   get 'dashboard', to: 'pages#dashboard', as: :dashboard
 end
