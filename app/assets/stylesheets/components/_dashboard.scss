@@ -1,7 +1,7 @@
 #dashboard {
   position: fixed;
   right: 0;
-  z-index: 10;
+  z-index: 9;
   background-color: $pink;
   height: calc(100vh - 137px);
   padding: 73px 16px 0px 11px;
@@ -13,8 +13,57 @@
   ul {
     list-style-type: none;
   }
+
   h3 {
-    padding: 6px;
+    color: $grey;
+    font-size: 1rem;
+    padding-bottom: 4px;
+  }
+}
+
+.dashboard-user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 30px;
+
+  p {
+    font-size: 0.8rem;
+    margin-bottom: -2px;
+  }
+}
+
+.dashboard-doctor-card {
+  background-color: white;
+  padding: 6px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 5px;
+
+  div {
+    flex-grow: 1;
+  }
+
+  h4{
+    font-size: 1rem;
+    padding-bottom: 2px;
+  }
+
+  p {
+    text-align: end;
+    padding: 4px 8px;
+    width: max-content;
+  }
+
+
+  .delete {
+    font-size: 0.7rem;
+    color: $grey;
+    align-items: flex-start;
   }
 }
 
@@ -22,10 +71,8 @@
   overflow: hidden;
   height: 62px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.03);
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: center;
   width: 104%;
   border-radius: 5px;

@@ -1,30 +1,33 @@
 <div id='dashboard' class='hidden'>
-  <div class="dashboard-infos">
-  <% if user_signed_in? %>
-    <% if current_user.photo.attached?%>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
-    <% end %>
-    <h1><%= current_user.username %></h1>
-    <p><%= pluralize(current_user.friendships.count, 'ami.e', 'ami.e.s')%></p>
-    <%# <%= current_user.recommendations.count%>
-    <p>x recommandations</p><br>
-  </div>
+
+    <div class="dashboard-infos">
+    <% if user_signed_in? %>
+      <% if current_user.photo.attached?%>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+      <% end %>
+      <div class="dashboard-user-card">
+        <h2><%= current_user.username.upcase %></h2>
+        <p><%= pluralize(current_user.friendships.count, 'ami.e', 'ami.e.s')%></p>
+        <%# <%= current_user.recommendations.count%>
+        <p><%= pluralize(current_user.recommendations.count, 'recommendation donnée', 'recommendations données') %></p><br>
+      </div>
+    </div>
 
 
-
-    <h3 class="h6"><u>Soignants sauvgardés</u></h3>
+    <h3 >Soignant.e.s en favoris</h3>
     <div id="favorites-container">
       <% current_user.favorites.includes(:doctor).each do |favorite| %>
         <%= render 'shared/dashboard_favorite', favorite: favorite %>
       <% end %>
     </div>
     <hr>
+
     <%# <p><%= current_user.doctors</p> formule ok quand on aura fav doctors%>
-  <div class="dashboard-actions">
-      <%= link_to 'Edit', edit_user_registration_path%><br>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <div class="dashboard-actions d-flex flex-column align-items-end justify-content-end ">
+      <%= link_to 'Modification', edit_user_registration_path%><br>
+      <%= link_to "Déconnexion", destroy_user_session_path, remote: true, method: :delete %>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
     <% end %>
   </div>
 </div>
