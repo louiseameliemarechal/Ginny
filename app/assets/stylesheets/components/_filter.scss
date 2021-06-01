@@ -1,41 +1,83 @@
 
 
-// Gender
+.form-group {
+  padding-top: 12px;
+}
+// Convention
 
-.category-wrapper {
-  display: flex;
-  justify-content: center;
+
+
+.convention-item {
+  width: max-content;
 }
 
-.category-item {
-  flex: 1;
-}
-
-.category-selector {
+.convention-selector {
   position: absolute;
   transform: scale(0);
 }
 
-.category-selector + label {
+.convention-selector + label {
+  color: $dark-grey;
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 0.7rem;
+  text-align: left;
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+
+.convention-selector:checked + label {
+  color: black !important;
+  background-color: $grey;
+}
+
+
+// Gender
+
+.gender-wrapper {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #C4C4C4;
+  border-radius: 50px;
+}
+
+.gender-item {
+  flex: 1;
+  display: flex;
+}
+
+.gender-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.gender-selector + label {
   display: block;
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: center;
-  padding: 10px 10px 30px 10px;
+  padding: 10px 10px;
   background-color: white;
+  color: black;
 
-  &:first-child {
+  &[for="search_gender_homme"] {
     border-bottom-left-radius: 50px;
     border-top-left-radius: 50px;
+    border: none;
+  }
+
+   &[for="search_gender_femme"] {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border: none;
   }
 }
 
-
-
-
-.category-selector:checked + label {
+.gender-selector:checked + label {
   color: white !important;
   background-color: $burgundy;
 }
@@ -59,13 +101,16 @@
   color: black;
   font-size: 0.7rem;
   z-index: 99;
+  position: relative;
 
    &:before {
     content: "";
     height: 24px;
     border-radius: 5px;
     position: absolute;
-    top: 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
     z-index: -1;
   }
 }
@@ -110,6 +155,33 @@ label[for="search_tags_lgbt"]::before {
   background-color: $tag-pink;
 }
 
+label[for="search_profession_généraliste"]::before {
+  width: 80px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_profession_généraliste"]::before {
+  background-color: $tag-green;
+}
+
+label[for="search_profession_gynécologue"]::before {
+  width: 80px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_profession_gynécologue"]::before {
+  background-color: $tag-yellow;
+}
+
+label[for="search_profession_sage-femme"]::before {
+  width: 80px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_profession_sage-femme"]::before {
+  background-color: $tag-orange;
+}
+
 
 
 // Bagdges
@@ -119,8 +191,13 @@ label[for="search_tags_lgbt"]::before {
   position: absolute;
   transform: scale(0);
 }
+
 .badge-list {
   display: flex;
+}
+
+.badge-card {
+  width: 30%;
 }
 
 .badge-selector + label {
@@ -129,7 +206,6 @@ label[for="search_tags_lgbt"]::before {
   font-size: 0.7rem;
   color: black;
 }
-
 .badge-selector:not(:checked) + label {
   filter: grayscale(100%);
   color: $dark-grey;
@@ -138,6 +214,11 @@ label[for="search_tags_lgbt"]::before {
 .badge-card label {
   position: relative;
   padding-top: 70px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
 
   &:before {
     content: "";
@@ -146,6 +227,8 @@ label[for="search_tags_lgbt"]::before {
     border-radius: 50px;
     position: absolute;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -153,6 +236,7 @@ label[for="search_badges_écoute"]::before {
     background-image: url(badges/écoute.jpg);
     background-size: contain;
     background-repeat: no-repeat;
+
 }
 label[for="search_badges_empathie"]::before {
     background-image: url(badges/empathie.jpg);
@@ -165,3 +249,8 @@ label[for="search_badges_pédagogie"]::before {
     background-repeat: no-repeat;
 }
 
+.badge-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
