@@ -1,0 +1,167 @@
+
+
+// Gender
+
+.category-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.category-item {
+  flex: 1;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px 10px 30px 10px;
+  background-color: white;
+
+  &:first-child {
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+  }
+}
+
+
+
+
+.category-selector:checked + label {
+  color: white !important;
+  background-color: $burgundy;
+}
+
+
+// Tags
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  color: black;
+  font-size: 0.7rem;
+  z-index: 99;
+
+   &:before {
+    content: "";
+    height: 24px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+}
+
+.tag-selector:not(:checked) + label {
+  color: $dark-grey;
+}
+
+label[for="search_tags_endométriose"]::before {
+  width: 98px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_endométriose"]::before {
+  background-color: $tag-marroon;
+}
+
+label[for="search_tags_ivg-friendly"]::before {
+  width: 90px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_ivg-friendly"]::before {
+  background-color: $tag-yellow;
+}
+
+label[for="search_tags_diu"]::before {
+  width: 40px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_diu"]::before {
+  background-color: $tag-grey;
+}
+
+label[for="search_tags_lgbt"]::before {
+  width: 52px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="search_tags_lgbt"]::before {
+  background-color: $tag-pink;
+}
+
+
+
+// Bagdges
+
+
+.badge-selector {
+  position: absolute;
+  transform: scale(0);
+}
+.badge-list {
+  display: flex;
+}
+
+.badge-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  color: black;
+}
+
+.badge-selector:not(:checked) + label {
+  filter: grayscale(100%);
+  color: $dark-grey;
+}
+
+.badge-card label {
+  position: relative;
+  padding-top: 70px;
+
+  &:before {
+    content: "";
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    position: absolute;
+    top: 0;
+  }
+}
+
+label[for="search_badges_écoute"]::before {
+    background-image: url(badges/écoute.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+label[for="search_badges_empathie"]::before {
+    background-image: url(badges/empathie.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+label[for="search_badges_pédagogie"]::before {
+    background-image: url(badges/pédagogie.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+

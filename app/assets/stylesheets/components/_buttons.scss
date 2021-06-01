@@ -54,7 +54,51 @@
   }
 }
 
+.button-2-choices {
 
+  // STRUCTURE
+  // <div class="button-2-choices">
+  //   <button>A</button>
+  //   <button>B</button>
+  // </div>
+
+  width: max-content;
+  border-radius: 50px;
+  background-color: white;
+
+  .radio_buttons {
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 10px 0px;
+  float: left;
+  cursor: unset;
+  width: 180px;
+  border-radius: 50px;
+  }
+
+  button:first-child {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+
+  button:last-child {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px
+  }
+
+  button:hover {
+      background-color: $burgundy;
+      border: none;
+      color: white;
+    }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+}
 
 .button-main {
 

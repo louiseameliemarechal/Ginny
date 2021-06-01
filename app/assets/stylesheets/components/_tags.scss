@@ -1,6 +1,6 @@
 .tag {
   font-family: Domine;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   line-height: 14px;
   border-radius: 5px;
   color: black;
@@ -22,7 +22,7 @@
     background-color: $tag-yellow;
   }
   &.généraliste {
-    background-color: $tag-grey;
+    background-color: $tag-green;
   }
 
   // For tags
