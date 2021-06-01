@@ -4,7 +4,13 @@
   </div>
   <div class="row d-flex justify-content-center box-bordered py-4 px-5">
     <%= simple_form_for [@doctor, @recommendation] do |f| %>
-      <%= f.association :tags, as: :check_boxes, collection: @doctor.tags %>
+      <%= f.association :tags, 
+              as: :check_boxes, 
+              collection: Tag.all_names,
+              wrapper_html: { class: "tag-list" },
+              input_html: { class: "form-control tag-selector" },
+              item_wrapper_class: 'tag-card tag',
+              required: false  %>
       <%= f.association :badges, 
             as: :check_boxes,
             collection_wrapper_tag: 'div',
