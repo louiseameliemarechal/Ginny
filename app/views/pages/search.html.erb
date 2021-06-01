@@ -17,7 +17,7 @@
         <%= f.input :name_or_specialty,
           input_html: { value:  params.dig(:search, :name_or_specialty) },
           class: "form-control",
-          placeholder: "Nom du praticien ou spécialité",
+          placeholder: "Nom du praticien.ne ou spécialité",
           label: "<i class='fas fa-search text-primary pin'></i>".html_safe,
           required: false
         %>
@@ -40,17 +40,20 @@
           <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
 
             <%= f.input :gender,
-              as: :radio_buttons,
+              as: :check_boxes,
+              label: "Genre du praticien.ne",
+              input_html: { checked: true },
               collection: Doctor.genders,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'gender-wrapper',
-              item_wrapper_class: 'gender-item',
-              input_html: {class: 'gender-selector'},
+              wrapper_html: { class: "tag-list" },
+              input_html: { class: "form-control tag-selector" },
+              item_wrapper_class: 'tag-card tag',
               required: false
             %>
 
             <%= f.input :profession,
               as: :check_boxes,
+              label: "Séléctionner la profession",
+              input_html: { checked: true },
               collection: Doctor.professions,
               wrapper_html: { class: "tag-list" },
               input_html: { class: "form-control tag-selector" },
@@ -59,17 +62,21 @@
             %>
 
             <%= f.input :convention,
-              as: :radio_buttons,
+              as: :check_boxes,
+              label: "Séléctionner la convention",
+              input_html: { checked: true },
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'convention-wrapper',
               item_wrapper_class: 'convention-item',
               input_html: {class: 'convention-selector'},
-              collection: Doctor.conventions,
+              collection: Doctor.order(:convention).conventions,
               required: false
             %>
 
             <%= f.input :tags,
               as: :check_boxes,
+              label: "Séléctionner des tags",
+              input_html: { checked: true },
               collection: Tag.all_names,
               wrapper_html: { class: "tag-list" },
               input_html: { class: "form-control tag-selector" },
@@ -79,6 +86,8 @@
 
             <%= f.input :badges,
               as: :check_boxes,
+              label: "Séléctionner des badges",
+              input_html: { checked: true },
               collection: Badge.pluck(:picto),
               wrapper_html: { class: "badge-list" },
               input_html: { class: "form-control badge-selector" },

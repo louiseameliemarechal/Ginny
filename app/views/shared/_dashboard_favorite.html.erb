@@ -1,5 +1,13 @@
-<ul class="dashboard-card" data-favorite-id="<%= favorite.id %>">
-  <li class="black-color smaller-text"><strong><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name}" %></strong></li>
-  <li class="black-color smaller-text"><%= favorite.doctor.profession %></li>
-  <li class= "smaller-text light-grey-color"><%= link_to 'remove', favorite_path(favorite), method: :delete %></li>
-</ul>
+<ul class="dashboard-doctor-card"  data-favorite-id="<%= favorite.id %>">
+  <div>
+    <li >
+      <h4><%= "#{favorite.doctor.first_name.capitalize} #{favorite.doctor.last_name.capitalize}" %></h4>
+    </li>
+    <li >
+      <p class="tag <%=favorite.doctor.profession%> "><%= favorite.doctor.profession %></p>
+    </li>
+  </div>
+  <li class= "delete smaller-text light-grey-color">
+    <%= link_to 'x', favorite_path(favorite), method: :delete %>
+  </li>
+  </ul>

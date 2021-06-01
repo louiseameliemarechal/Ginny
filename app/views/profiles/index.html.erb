@@ -19,11 +19,13 @@
     <% if profile.photo.attached?%>
       <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
     <% end %>
-    <li><h1 class="h2"><%= link_to "#{profile.username }", profile_path(profile) %></h1></li> </div>
+    <li><h1 class="h2"><%= link_to "#{profile.username }", profile_path(profile) %></h1></li>
+    <%= link_to "Abonné", new_invite_path, class: "follow-button" %>
+     </div>
   <% end %>
   </ul>
 
- <a href="https://www.w3schools.com" class="button-add-friends">Link Button</a>
+  <%= link_to "Inviter un ami", new_invite_path, class: "button-add-friends" %>
 
 </div>
 
