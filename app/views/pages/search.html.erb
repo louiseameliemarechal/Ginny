@@ -43,23 +43,28 @@
               as: :radio_buttons,
               collection: Doctor.genders,
               collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'category-wrapper',
-              item_wrapper_class: 'category-item',
-              input_html: {class: 'category-selector'},
+              collection_wrapper_class: 'gender-wrapper',
+              item_wrapper_class: 'gender-item',
+              input_html: {class: 'gender-selector'},
               required: false
             %>
 
             <%= f.input :profession,
+              as: :check_boxes,
               collection: Doctor.professions,
-              input_html: { class: "form-control" },
-              placeholder: "La profession de mon praticien.ne",
+              wrapper_html: { class: "tag-list" },
+              input_html: { class: "form-control tag-selector" },
+              item_wrapper_class: 'tag-card tag',
               required: false
             %>
 
             <%= f.input :convention,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'convention-wrapper',
+              item_wrapper_class: 'convention-item',
+              input_html: {class: 'convention-selector'},
               collection: Doctor.conventions,
-              input_html: { class: "form-control" },
-              placeholder: "La convention de mon praticien.ne",
               required: false
             %>
 
@@ -77,6 +82,8 @@
               collection: Badge.pluck(:picto),
               wrapper_html: { class: "badge-list" },
               input_html: { class: "form-control badge-selector" },
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'badge-wrapper',
               item_wrapper_class: 'badge-card',
               required: false
             %>
