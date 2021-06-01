@@ -22,35 +22,34 @@
   width: 40px;
   height: 40px;
   object-fit: cover;
-
 }
 
 .gyneco-w-icon {
-  background-image: url('doctor_icons/gyneco-w-icon.png');
+  background-image: asset-url('doctor_icons/gyneco-w-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .gyneco-m-icon {
-  background-image: url('doctor_icons/gyneco-m-icon.png');
+  background-image: asset-url('doctor_icons/gyneco-m-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .generaliste-m-icon {
-  background-image: url('doctor_icons/generaliste-m-icon.png');
+  background-image: asset-url('doctor_icons/generaliste-m-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .generaliste-w-icon {
-  background-image: url('doctor_icons/generaliste-w-icon.png');
+  background-image: asset-url('doctor_icons/generaliste-w-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .sage-femme-w-icon {
-  background-image: url('doctor_icons/sage-femme-w-icon.png');
+  background-image: asset-url('doctor_icons/sage-femme-w-icon.png');
   background-size: contain;
   background-repeat: no-repeat;
 }

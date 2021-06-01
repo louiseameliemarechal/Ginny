@@ -1,5 +1,5 @@
 <div class="marker-window">
-  <h4><%= doctor.first_name.capitalize %>  <%= doctor.last_name.capitalize %></h2>
+  <h4> <%= link_to " #{doctor.first_name.capitalize} #{doctor.last_name.capitalize}" , doctor_path(doctor)  %> </h4>
   <p class="street"><%= doctor.street %></p>
   <p class="city"><%= doctor.city %></p>
 </div>
