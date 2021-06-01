@@ -40,7 +40,9 @@
           <div class="advanced_filters d-none" data-search-form-target="advancedFilters">
 
             <%= f.input :gender,
-              as: :radio_buttons,
+              as: :check_boxes,
+              label: "Genre du praticien.ne",
+              input_html: { checked: true },
               collection: Doctor.genders,
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'gender-wrapper',
@@ -51,6 +53,8 @@
 
             <%= f.input :profession,
               as: :check_boxes,
+              label: "Séléctionner la profession",
+              input_html: { checked: true },
               collection: Doctor.professions,
               wrapper_html: { class: "tag-list" },
               input_html: { class: "form-control tag-selector" },
@@ -59,7 +63,9 @@
             %>
 
             <%= f.input :convention,
-              as: :radio_buttons,
+              as: :check_boxes,
+              label: "Séléctionner la convention",
+              input_html: { checked: true },
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'convention-wrapper',
               item_wrapper_class: 'convention-item',
@@ -70,6 +76,8 @@
 
             <%= f.input :tags,
               as: :check_boxes,
+              label: "Séléctionner des tags",
+              input_html: { checked: true },
               collection: Tag.all_names,
               wrapper_html: { class: "tag-list" },
               input_html: { class: "form-control tag-selector" },
@@ -79,6 +87,8 @@
 
             <%= f.input :badges,
               as: :check_boxes,
+              label: "Séléctionner des badges",
+              input_html: { checked: true },
               collection: Badge.pluck(:picto),
               wrapper_html: { class: "badge-list" },
               input_html: { class: "form-control badge-selector" },
