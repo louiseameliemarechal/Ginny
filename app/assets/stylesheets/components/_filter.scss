@@ -133,6 +133,15 @@ label[for="search_tags_ivg-friendly"]::before {
   margin-left: -10px;
 }
 
+label[for="recommendation_tags_ivg-friendly"]::before {
+  width: 90px;
+  margin-left: -10px;
+}
+
+.tag-selector:checked + label[for="recommendation_tags_ivg-friendly"]::before {
+  background-color: $tag-yellow;
+}
+
 .tag-selector:checked + label[for="search_tags_ivg-friendly"]::before {
   background-color: $tag-yellow;
 }
