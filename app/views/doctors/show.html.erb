@@ -1,8 +1,8 @@
 <!-- app/views/offers/show.html.erb -->
-<% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @offer.description %>
-<% content_for :meta_image, cl_image_path(@offer.photo.path) %>
-  
+<% content_for :meta_title, "#{@doctor.first_name} #{@doctor.last_name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @doctor.profession %>
+
+
   <div class='box-bordered'>
     <div class ='doctor-card pb-4'>
       <div class="doctor-card-text">
