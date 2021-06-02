@@ -4,12 +4,28 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+  .button-main {
+    border-radius: 50px;
+    background-color: #470700;
+    width: 184px;
+    text-align: center;
+    color: white !important;
+    display: block;
+    font-family: Martel;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 47px;
+    height: 49px;
+    margin-top: 30px;
+    text-decoration: none;
+    border: none;
+  }
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background-color: #F7F1ED;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
-    margin: 0;
+    margin: 0; 
   }
 
   .rails-default-error-page div.dialog {
@@ -18,7 +34,7 @@
     margin: 4em auto 0;
   }
 
-  .rails-default-error-page div.dialog > div {
+  /* .rails-default-error-page div.dialog > div {
     border: 1px solid #CCC;
     border-right-color: #999;
     border-left-color: #999;
@@ -29,11 +45,11 @@
     background-color: white;
     padding: 7px 12% 0;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  } */
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #8F1B1B;
     line-height: 1.5em;
   }
 
@@ -57,11 +73,11 @@
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
+    <div class="d-flex justify-content-center">
+      <h1>Cette page n'existe pas</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <a href="http://www.ginny.life/doctors" class="button-main">Accueil</a>
   </div>
 </body>
 </html>
