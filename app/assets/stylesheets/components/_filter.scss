@@ -200,13 +200,14 @@ label[for="search_gender_homme"]::before {
 
 .badge-card label {
   position: relative;
-  padding-top: 70px;
+  padding-top: 140px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
   padding: 8px;
+  margin-top: 50px;
 
   &:before {
     content: "";
@@ -215,25 +216,25 @@ label[for="search_gender_homme"]::before {
     // padding: 8px;
     border-radius: 50px;
     position: absolute;
-    top: 0;
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
   }
 }
 
-label[for="search_badges_écoute"]::before {
-    background-image: url(badges/écoute.jpg);
+label[for="search_badges_ecoute"]::before {
+    background-image: asset-url('badges/ecoute.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 
 }
 label[for="search_badges_empathie"]::before {
-    background-image: url(badges/empathie.jpg);
+    background-image: asset-url('badges/empathie.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
-label[for="search_badges_pédagogie"]::before {
-    background-image: url(badges/pédagogie.jpg);
+label[for="search_badges_pedagogie"]::before {
+    background-image: asset-url('badges/pedagogie.jpg');
     background-size: contain;
     background-repeat: no-repeat;
 }
