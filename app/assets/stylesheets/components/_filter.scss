@@ -46,19 +46,20 @@
 }
 
 .tag-selector + label {
-  cursor: pointer;
+  color: #777777;
+  padding: 13px 10px;
+  border-radius: 5px;
+  margin: 4px;
+  background-color: rgba(200, 200, 200, 0.2);
+  position: relative;
   display: inline-block;
-  color: black;
+  cursor: pointer;
   font-size: 14px;
   z-index: 99;
-  position: relative;
-  padding: 8px;
-
    &:before {
     content: "";
-    // height: 24px;
     border-radius: 5px;
-    padding: 15px;
+    padding: 20px 17px;
     position: absolute;
     top: 50%;
     left: 0;
@@ -72,9 +73,7 @@
 }
 
 label[for="search_tags_endométriose"]::before {
-  // width: 98px;
   width: 100%;
-  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_tags_endométriose"]::before {
@@ -151,8 +150,9 @@ label[for="search_profession_sage-femme"]::before {
 }
 
 label[for="search_gender_femme"]::before {
-  width: 62px;
-  margin-left: -10px;
+  // width: 62px;
+  // margin-left: -10px;
+  width: 100%;
 }
 
 .tag-selector:checked + label[for="search_gender_femme"]::before {
@@ -161,8 +161,9 @@ label[for="search_gender_femme"]::before {
 
 
 label[for="search_gender_homme"]::before {
-  width: 62px;
-  margin-left: -10px;
+  // width: 62px;
+  // margin-left: -10px;
+  width: 100%;
 }
 
 .tag-selector:checked + label[for="search_gender_homme"]::before {
