@@ -6,7 +6,7 @@
     <i class="fas fa-plus-circle reco-button"></i>
   </a>
 </li> %>
-<div id="footer" class="d-flex align-items-center justify-content-between position-fixed w-100" style="z-index: 10; bottom: 0; background-color: #F7F1ED;">
+<div id="footer" class="d-flex align-items-center justify-content-between position-fixed w-100" style="z-index: 100; bottom: 0; background-color: #F7F1ED;">
 
   <%= link_to doctors_path, class: "footer-link #{"active-footer-link" if (current_page?(doctors_path) && params[:search].nil?) ||
   (action_name == 'show' && controller_name == 'doctors' && @backlink == 'home') }" do %>
