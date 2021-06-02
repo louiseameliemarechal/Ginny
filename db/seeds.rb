@@ -17,9 +17,9 @@ require 'open-uri'
   puts "Users cleaned"
 
   # Creation of Badges
-Badge.create!(name: 'écoute', picto: 'écoute')
+Badge.create!(name: 'ecoute', picto: 'ecoute')
 Badge.create!(name: 'empathie', picto: 'empathie')
-Badge.create!(name: 'pédagogie', picto: 'pédagogie')
+Badge.create!(name: 'pedagogie', picto: 'pedagogie')
 puts "#{Badge.count} badges created"
   # Creation of Tags
 Tag.create!(name: 'IVG-friendly', picto: 'IVG-friendly')
