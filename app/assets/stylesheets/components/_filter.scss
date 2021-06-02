@@ -46,7 +46,7 @@
 }
 
 .tag-selector + label {
-  color: #777777;
+  color: #1f1f1f;
   padding: 13px 10px;
   border-radius: 5px;
   margin: 4px;
@@ -68,15 +68,16 @@
   }
 }
 
-.tag-selector:not(:checked) + label {
-  color: $dark-grey;
-}
+// .tag-selector:not(:checked) + label {
+//   color: red;
+// }
 
 label[for="search_tags_endométriose"]::before {
   width: 100%;
 }
 
 .tag-selector:checked + label[for="search_tags_endométriose"]::before {
+  color: black !important;
   background-color: $tag-marroon !important;
 }
 
@@ -87,8 +88,8 @@ label[for="search_tags_ivg-friendly"]::before {
 }
 
 label[for="recommendation_tags_ivg-friendly"]::before {
-  width: 90px;
-  margin-left: -10px;
+  // width: 90px;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="recommendation_tags_ivg-friendly"]::before {
