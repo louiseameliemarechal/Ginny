@@ -1,5 +1,6 @@
 .tag {
   font-family: Domine;
+  display: flex;
   font-size: 14px;
   line-height: 14px;
   border-radius: 5px;
@@ -8,7 +9,7 @@
   width: auto;
   // padding: 10px;
   margin: 4px;
-  background-color: rgba(200,200,200,0.2);
+  // background-color: rgba(200,200,200,0.2);
 
 
   p {

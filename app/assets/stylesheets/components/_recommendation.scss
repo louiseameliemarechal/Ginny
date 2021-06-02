@@ -1,36 +1,45 @@
 // Tags
+
+
+
+#new_recommendation label:before {
+  width: 100%;
+  height: 100%;
+}
+
+
 .tag-selector:not(:checked) + label {
   color: $dark-grey;
   border-color: $light-grey;
 }
 
 label[for="recommendation_tags_ivg-friendly"]::before {
-  width: 90px;
-  margin-left: -10px;
+  // width: 90px;
+  // margin-left: -10px;
 }
 .tag-selector:checked + label[for="recommendation_tags_ivg-friendly"]::before {
   background-color: $tag-yellow;
 }
 
 label[for="recommendation_tags_endométriose"]::before {
-  width: 98px;
-  margin-left: -10px;
+  // width: 98px;
+  // margin-left: -10px;
 }
 .tag-selector:checked + label[for="recommendation_tags_endométriose"]::before {
   background-color: $tag-marroon;
 }
 
 label[for="recommendation_tags_diu"]::before {
-  width: 40px;
-  margin-left: -10px;
+  // width: 40px;
+  // margin-left: -10px;
 }
 .tag-selector:checked + label[for="recommendation_tags_diu"]::before {
   background-color: $tag-grey;
 }
 
 label[for="recommendation_tags_lgbt"]::before {
-  width: 52px;
-  margin-left: -10px;
+  // width: 52px;
+  // margin-left: -10px;
 }
 .tag-selector:checked + label[for="recommendation_tags_lgbt"]::before {
   background-color: $tag-pink;
