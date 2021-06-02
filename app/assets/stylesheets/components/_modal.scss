@@ -9,11 +9,18 @@
 }
 
 #recommendationModal {
+  .modal-title {
+    text-align: center;
+  }
   .modal-footer {
     display: inline;
     label {
       font-size: 0.9rem;
       color: black;
+      margin-bottom: 0;
+      .p-3 {
+        padding: 0.6rem !important;
+      }
     }
     .button-main {
       margin-left: auto;
