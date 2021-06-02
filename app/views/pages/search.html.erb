@@ -5,7 +5,7 @@
         <%= f.input :address,
           input_html: { value:  params.dig(:search, :address) },
           class: "form-control",
-          placeholder: "Où ? (adresse, ville)",
+          placeholder: "73 Rue De Caumartin Paris",
           label: false,
           required: false
         %>
@@ -17,7 +17,7 @@
         <%= f.input :name_or_specialty,
           input_html: { value:  params.dig(:search, :name_or_specialty) },
           class: "form-control",
-          placeholder: "Nom du praticien.ne ou spécialité",
+          placeholder: "Georges Chivas, DIU",
           label: "<i class='fas fa-search text-primary pin'></i>".html_safe,
           required: false
         %>
