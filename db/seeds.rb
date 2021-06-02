@@ -31,11 +31,35 @@ puts "#{Tag.count} tags created"
 
 
   # Creation of Users
-user_1 = User.create!(email: 'test@test.com', username: 'Jean', password: '123456', phone_number: '0669151332')
-user_2 = User.create!(email: 'test2@test.com', username: 'Jeanne', password: '123456', phone_number: '0669151732')
+file1 = URI.open("https://i.pravatar.cc/100")
+file2 = URI.open("https://i.pravatar.cc/100")
+file3 = URI.open("https://i.pravatar.cc/100")
+file4 = URI.open("https://i.pravatar.cc/100")
+file4 = URI.open("https://i.pravatar.cc/100")
+file5 = URI.open("https://i.pravatar.cc/100")
+
+
+# file = URI.open("https://source.unsplash.com/random/100x100")
+user_1 = User.create!(email: 'test@test.com', username: 'Jeanne', password: '123456', phone_number: '0669151332')
+User.last.photo.attach(io: file1, filename: 'nes.jpg', content_type: 'image/jpg')
+User.last.save!
+puts "#{user_1.username} has joined Ginny"
+user_2 = User.create!(email: 'test2@test.com', username: 'Chanel', password: '123456', phone_number: '0669151732')
+user_2.photo.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
+user_2.save!
+puts "#{user_2.username} has joined Ginny"
 user_3 = User.create!(email: 'test3@test.com', username: 'Rosie', password: '123456', phone_number: '169151732')
+user_3.photo.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
+user_3.save!
+puts "#{user_3.username} has joined Ginny"
 user_4 = User.create!(email: 'test4@test.com', username: 'Abigail', password: '123456', phone_number: '2669151732')
+user_4.photo.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
+user_4.save!
+puts "#{user_4.username} has joined Ginny"
 user_5 = User.create!(email: 'test5@test.com', username: 'Dahlia', password: '123456', phone_number: '669151732')
+user_5.photo.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+user_5.save!
+puts "#{user_5.username} has joined Ginny"
 puts "Users created"
 
     # Creation of Friendship

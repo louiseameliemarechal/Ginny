@@ -1,25 +1,44 @@
-<div class="container ginny-show px-4">
-  <% if @profile.photo.attached?%>
-    <%= cl_image_tag @profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
-  <% end %>
+<div class="container ginny-show profile-show px-4">
+<%# Avatar %>
+  <div class="profil-info">
+    <div class="profil-text">
+      <h2><%= @profile.username %></h2>
+      <p><%= pluralize(@profile.friendships.count, 'ami.e', 'ami.e.s')%></p>
+    </div>
+    <div class="profil-pic">
+      <% if @profile.photo.attached?%>
+        <%= cl_image_tag @profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+      <% end %>
 
-  <h1><%= @profile.username %></h1>
+    <% unless @profile == current_user %>
+      <div class="profile-button">
 
-  <p><%= pluralize(@profile.friendships.count, 'ami.e', 'ami.e.s')%></p>
-
-
-  <% unless @profile == current_user %>
-    <%= link_to 'Follow', profile_friendships_path(@profile), method: :post unless @friendship %>
-    <%= link_to 'Unfollow', friendship_path(@friendship), method: :delete if @friendship %>
-  <% end %>
-
-  <%# <%= @profile.recommendations.count%>
-
-  <h3>Soignants sauvgardés</h3>
-  <% @profile.favorites.includes(:doctor).each do |favorite| %>
-    <ul>
-      <li><%= "#{favorite.doctor.first_name} #{favorite.doctor.last_name} - #{favorite.doctor.profession}"%></li>
-    </ul>
-  <% end %>
+        <div class="follow-button">
+          <%= link_to 'Abonné.e', profile_friendships_path(@profile), method: :post unless @friendship %>
+        </div>
+        <%# <div class="unfollow-button"> %>
+        <%# <%= link_to 'Se désabonner', friendship_path(@friendship), method: :delete if @friendship %>
+        <%# </div> %>
+      </div>
+    <% end %>
+    </div>
+  </div>
   <hr>
+  <h3>Soignant.e.s en favoris</h3>
+  <div class="doctor-card-list">
+    <% @profile.favorites.includes(:doctor).each do |favorite| %>
+      <ul class="dashboard-doctor-card">
+        <li>
+          <h4>
+            <%= link_to "#{favorite.doctor.first_name.capitalize} #{favorite.doctor.last_name.capitalize}", doctor_path(favorite.doctor) %>
+          </h4>
+          <p><%= favorite.doctor.street %></p>
+          <p><%= favorite.doctor.city %></p>
+        </li>
+        <li>
+          <p class="tag <%=favorite.doctor.profession%> "><%= favorite.doctor.profession %></p>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 </div>

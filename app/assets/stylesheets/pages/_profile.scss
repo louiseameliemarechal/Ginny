@@ -1,5 +1,38 @@
-.profil-details {
- display: flex;
- justify-content: space-between;
- align-items: center;
+.profile-show {
+  justify-content: flex-start;
+  padding-top: 3rem;
+
+  .profil-info {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+
+    .profil-text {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    align-items: center;
+      h2 {
+        color:black;
+      }
+    }
+    .profil-pic {
+      display: flex;
+      flex-direction: column;
+      padding: 4px;
+      align-items: center;
+      .follow-button .unfollow-button > a {
+        color: white;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: $grey;
+    padding-bottom: 4px;
+  }
 }

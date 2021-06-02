@@ -1,31 +1,40 @@
 
-<div class=" container pt-4 mt-4 pagination justify-content-center">
-  <%= simple_form_for :search, url: profiles_path, method: :get, data: { controller: "search-form" } do |f| %>
-    <div class="row">
-      <div class="col align-self-enter">
-        <%= f.input :username,
-          input_html: { value:  params.dig(:search, :username) },
-          class: "form-control",
-          placeholder: "Rechercher un.e ami.e ou membre",
-          label: false
-        %>
+<%# Searchbar %>
+<div class="pb-4"></div>
+  <div class=" container px-4 pagination justify-content-center">
+    <%= simple_form_for :search, url: profiles_path, method: :get, data: { controller: "search-form" } do |f| %>
+      <div class="row">
+        <div class="col align-self-enter">
+          <%= f.input :username,
+            input_html: { value:  params.dig(:search, :username) },
+            class: "form-control",
+            placeholder: "Rechercher un.e ami.e ou membre",
+            label: false
+          %>
+        </div>
       </div>
+      <% end %>
+  </div>
+<%# Friend list %>
+  <div class="container ginny-show px-2">
+    <div class="user-profil-list">
+      <% @profiles.each do |profile| %>
+      <div class= "user-profil-card">
+        <% if profile.photo.attached?%>
+          <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+        <% end %>
+        <h2 class="profil-username"><%= link_to "#{profile.username }", profile_path(profile) %></h2>
+        <p><%= pluralize(profile.favorites.count, "praticien.ne favori.te", "praticien.ne favoris") %></p>
+        <p class="friends-count">
+         <%= profile.friendships.count == 0 ? "ne suit personne" : pluralize(profile.friendships.count, "abonnement") %>
+        </p>
+        <%= link_to "Abonné.e", new_invite_path, class: "follow-button" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
+
+    <div>
+      <%= link_to "Inviter un ami", new_invite_path, class: "button-secondary" %>
+    </div>
+  </div>
 </div>
-<div class="container ginny-show px-4">
-  <ul><% @profiles.each do |profile| %>
- <div class= "profil-details">
-    <% if profile.photo.attached?%>
-      <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
-    <% end %>
-    <li><h1 class="h2"><%= link_to "#{profile.username }", profile_path(profile) %></h1></li>
-    <%= link_to "Abonné", new_invite_path, class: "follow-button" %>
-     </div>
-  <% end %>
-  </ul>
-
-  <%= link_to "Inviter un ami", new_invite_path, class: "button-add-friends" %>
-
-</div>
-
