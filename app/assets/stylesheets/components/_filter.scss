@@ -19,11 +19,12 @@
   display: block;
   cursor: pointer;
   box-sizing: border-box;
-  font-size: 0.7rem;
+  font-size: 14px;
   text-align: left;
-  padding: 4px 8px;
+  padding: 10px;
   border-radius: 5px;
-  margin-bottom: 6px;
+  margin: 4px;
+  background-color: rgba(200,200,200,0.2);
 }
 
 .convention-selector:checked + label {
@@ -48,14 +49,16 @@
   cursor: pointer;
   display: inline-block;
   color: black;
-  font-size: 0.7rem;
+  font-size: 14px;
   z-index: 99;
   position: relative;
+  padding: 8px;
 
    &:before {
     content: "";
-    height: 24px;
+    // height: 24px;
     border-radius: 5px;
+    padding: 15px;
     position: absolute;
     top: 50%;
     left: 0;
@@ -69,17 +72,19 @@
 }
 
 label[for="search_tags_endométriose"]::before {
-  width: 98px;
-  margin-left: -10px;
+  // width: 98px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_tags_endométriose"]::before {
-  background-color: $tag-marroon;
+  background-color: $tag-marroon !important;
 }
 
 label[for="search_tags_ivg-friendly"]::before {
-  width: 90px;
-  margin-left: -10px;
+  // width: 90px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 label[for="recommendation_tags_ivg-friendly"]::before {
@@ -92,39 +97,43 @@ label[for="recommendation_tags_ivg-friendly"]::before {
 }
 
 .tag-selector:checked + label[for="search_tags_ivg-friendly"]::before {
-  background-color: $tag-yellow;
+  background-color: $tag-yellow !important;
 }
 
 label[for="search_tags_diu"]::before {
-  width: 40px;
-  margin-left: -10px;
+  // width: 40px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_tags_diu"]::before {
-  background-color: $tag-grey;
+  background-color: $tag-grey !important;
 }
 
 label[for="search_tags_lgbt"]::before {
-  width: 52px;
-  margin-left: -10px;
+  // width: 52px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_tags_lgbt"]::before {
-  background-color: $tag-pink;
+  background-color: $tag-pink !important;
 }
 
 label[for="search_profession_généraliste"]::before {
-  width: 80px;
-  margin-left: -10px;
+  // width: 80px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_profession_généraliste"]::before {
-  background-color: $tag-green;
+  background-color: $tag-green !important;
 }
 
 label[for="search_profession_gynécologue"]::before {
-  width: 80px;
-  margin-left: -10px;
+  // width: 80px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_profession_gynécologue"]::before {
@@ -132,12 +141,13 @@ label[for="search_profession_gynécologue"]::before {
 }
 
 label[for="search_profession_sage-femme"]::before {
-  width: 80px;
-  margin-left: -10px;
+  // width: 80px;
+  width: 100%;
+  // margin-left: -10px;
 }
 
 .tag-selector:checked + label[for="search_profession_sage-femme"]::before {
-  background-color: $tag-orange;
+  background-color: $tag-orange !important;
 }
 
 label[for="search_gender_femme"]::before {
@@ -194,11 +204,13 @@ label[for="search_gender_homme"]::before {
   justify-content: center;
   position: relative;
   text-align: center;
+  padding: 8px;
 
   &:before {
     content: "";
     height: 60px;
     width: 60px;
+    // padding: 8px;
     border-radius: 50px;
     position: absolute;
     top: 0;
