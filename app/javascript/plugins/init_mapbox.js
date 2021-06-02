@@ -43,7 +43,7 @@ const addGeolocMarker = (map) => {
       positionOptions: {
         enableHighAccuracy: true
       },
-      fitBoundsOptions: { maxZoom: 11 },
+      fitBoundsOptions: { maxZoom: 13 },
       trackUserLocation: true
     })
   )
