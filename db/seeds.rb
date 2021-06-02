@@ -107,7 +107,7 @@ doctors['records'].each do |record|
     new_doctor.convention = ["Secteur 1", "Secteur 2", "Secteur 2 sans suivi des soins"].sample
     # Remove the "," from the convention string
     new_doctor.gender = record['fields']['civilite']
-    new_doctor.average_number = ["90-110", "100-120", "110-140"].sample
+    new_doctor.average_number = ["90", "100", "110", "120", "140"].sample
     new_doctor.carte_vital = "Carte Vitale acceptée"
     new_doctor.save!
   end

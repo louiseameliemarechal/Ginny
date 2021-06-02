@@ -88,7 +88,7 @@
               as: :check_boxes,
               label: "Séléctionner des badges",
               input_html: { checked: true },
-              collection: Badge.pluck(:picto),
+              collection: Badge.pluck(:name),
               wrapper_html: { class: "badge-list" },
               input_html: { class: "form-control badge-selector" },
               collection_wrapper_tag: 'div',

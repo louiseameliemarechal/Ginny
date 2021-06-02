@@ -75,7 +75,7 @@
     <h4> Tarifs et remboursement</h4>
     <div class="pricing-info py-3">
       <p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
-      <p><%= "#{carte_vital(@doctor)}" %></p>
+      <p><%= @doctor.carte_vital %></p>
       <p>Conventionné <%= "#{@doctor.convention}" %></p>
     </div>
   </div>
