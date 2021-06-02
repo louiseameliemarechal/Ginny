@@ -3,5 +3,5 @@
 meta_product_name: "Ginny"
 meta_title: "Ginny - trouver et recommander un ou un.e patricien.ne de confiance pour son suivi gynécologique"
 meta_description: "Cette application t’accompagne toi et tes amis à trouver un ou une soignant.e (gynécologue, sage-femme ou médecin.e généraliste) en toute confiance. Elle te permet aussi de recommander un ou une praticien.ne que tu as déjà consulté.e à tes ami.e.s."
-meta_image: "Logo_Ginny.png" # should exist in `app/assets/images/`
+meta_image: "Logo-Ginny-og.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Card
