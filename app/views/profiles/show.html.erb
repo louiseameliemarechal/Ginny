@@ -1,7 +1,6 @@
 <!-- app/views/offers/show.html.erb -->
-<% content_for :meta_title, "#{@offer.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @offer.description %>
-<% content_for :meta_image, cl_image_path(@offer.photo.path) %>
+<% content_for :meta_title, "#{@profile.username} is on #{DEFAULT_META["meta_product_name"]}" %>
+
 
 <div class="container ginny-show px-4">
   <% if @profile.photo.attached?%>
