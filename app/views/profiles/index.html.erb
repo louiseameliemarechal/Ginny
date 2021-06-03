@@ -29,11 +29,14 @@
          <%= profile.friendships.count == 0 ? "ne suit personne" : pluralize(profile.friendships.count, "abonnement") %>
         </p>
         <%# <% unless profile == current_user %>
-        <div class="follow-button">
           <% if current_user.follow(profile) %>
-            <%= link_to "Se désabonner", friendship_path(current_user.follow(profile)), method: :delete %>
+            <div class="unfollow-button">
+              <%= link_to "Se désabonner", friendship_path(current_user.follow(profile)), method: :delete %>
+            </div>
           <% else %>
-            <%= link_to "S'abonner", profile_friendships_path(profile), method: :post %>
+            <div class="follow-button">
+              <%= link_to "S'abonner", profile_friendships_path(profile), method: :post %>
+            </div>
           <% end %>
         </div>
         <%# <% end %>
