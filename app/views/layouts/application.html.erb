@@ -45,7 +45,9 @@
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/recommendation' %>
+    <div class="custom-container">
     <%= yield %>
+    </div>
     <%= render 'shared/footer' if current_user %>
   </body>
 </html>
