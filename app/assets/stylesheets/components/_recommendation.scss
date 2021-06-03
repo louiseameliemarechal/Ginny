@@ -35,7 +35,7 @@ label[for="recommendation_tags_diu"]::before {
   // margin-left: -10px;
 }
 .tag-selector:checked + label[for="recommendation_tags_diu"]::before {
-  background-color: $tag-grey;
+  background-color: #D3DCBE;
 }
 
 label[for="recommendation_tags_lgbt"]::before {

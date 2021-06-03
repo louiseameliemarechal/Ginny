@@ -23,21 +23,28 @@
         <% if profile.photo.attached?%>
           <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
         <% end %>
-        <h2 class="profil-username"><%= link_to "#{profile.username }", profile_path(profile) %></h2>
-        <p><%= pluralize(profile.favorites.count, "praticien.ne favori", "praticien.nes favoris") %></p>
+        <h2 class="profil-username"><%= link_to "#{profile.username }", profile_path(profile) %>
+        </h2>
+        <p><%= pluralize(profile.favorites.count, "praticien.ne favori", "praticien.nes favoris") %>
+        </p>
         <%# <% unless profile == current_user %>
-        <div class="follow-button align-content-center">
-          <% if current_user.follow(profile) %>
-            <%= link_to "Abonné.e", friendship_path(current_user.follow(profile)), method: :delete %>
+
+
+        <div class="profile-button">
+       <% if current_user.follow(profile) %>
+            <div class="unfollow-button align-content-center">
+              <%= link_to "Abonné.e", friendship_path(current_user.follow(profile)), method: :delete %>
+            </div>
           <% else %>
-            <%= link_to "Se désabonner", profile_friendships_path(profile), method: :post %>
+            <div class="follow-button align-content-center">
+              <%= link_to "Désabonné.e", profile_friendships_path(profile), method: :post %>
+            </div>
           <% end %>
-        <%# <% end %>
+      </div>
+
 
       </div>
       <% end %>
-
-      <%# <%= link_to "Abonné.e", new_invite_path, class: "follow-button" %>
     </div>
     <div class='d-flex justify-content-center p-3'>
       <%= link_to "Inviter un.e ami.e", new_invite_path, class: "button-secondary py-2", id:"add-friend-button" %>
