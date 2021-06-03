@@ -4,7 +4,7 @@
   <div class=" container px-4 pagination justify-content-center">
     <%= simple_form_for :search, url: profiles_path, method: :get, data: { controller: "search-form" } do |f| %>
       <div class="row">
-        <div class="col align-self-enter">
+        <div class="col pt-3 align-self-enter">
           <%= f.input :username,
             input_html: { value:  params.dig(:search, :username) },
             class: "form-control",
@@ -44,7 +44,7 @@
       <%# <%= link_to "Abonné.e", new_invite_path, class: "follow-button" %>
     </div>
     <div class='d-flex justify-content-center p-3'>
-      <%= link_to "Inviter un.e ami.e", new_invite_path, class: "button-secondary py-2" %>
+      <%= link_to "Inviter un.e ami.e", new_invite_path, class: "button-secondary py-2", id:"add-friend-button" %>
     </div>
   </div>
 
