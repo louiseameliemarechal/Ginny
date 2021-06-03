@@ -11,3 +11,4 @@ class ProfilesController < ApplicationController
     @friendship = current_user.friendships.find_by(friend_id: params[:id])
   end
 end
+
