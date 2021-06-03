@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def index
     @profiles = current_user.friends
+    @friendship = current_user.friendships.find_by(friend_id: params[:id])
     if params.dig(:search)
       @profiles = @profiles.where(username: params.dig(:search, :username))
     end
