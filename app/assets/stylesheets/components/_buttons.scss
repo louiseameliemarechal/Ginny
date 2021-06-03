@@ -337,12 +337,32 @@
   min-width: 100px;
   height: 32px;
   padding: 8px;
+      a {
+    text-decoration: none;
+    color: white;
+    }
+}
 
+.unfollow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(71, 7, 0, 0.5);;
+  font-family: Staatliches;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  width: 100px;
+  height: 32px;
+  padding: 8px;
     a {
     text-decoration: none;
     color: white;
     }
 }
+
 
 .envoie-button {
  display: flex;
