@@ -1,13 +1,8 @@
-
-
-.form-group {
-  padding-top: 12px;
-}
 // Convention
 
-.convention-item {
-  width: max-content;
-}
+// .convention-item {
+//   // width: max-content;
+// }
 
 .convention-selector {
   position: absolute;
@@ -15,7 +10,7 @@
 }
 
 .convention-selector + label {
-  color: $dark-grey;
+  color: white;
   display: block;
   cursor: pointer;
   box-sizing: border-box;
@@ -24,7 +19,7 @@
   padding: 10px;
   border-radius: 5px;
   margin: 4px;
-  background-color: rgba(200,200,200,0.2);
+  background-color: gray;
 }
 
 .convention-selector:checked + label {
