@@ -7,7 +7,7 @@
 </div>
 
 <div class="doctor-list">
-  <% @doctors.each do |doctor| %>
+  <% @doctors.uniq.each do |doctor| %>
     <div class='box-bordered'>
       <div class ='doctor-card'>
         <div class="doctor-card-text">

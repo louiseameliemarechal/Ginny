@@ -36,36 +36,66 @@ file2 = URI.open("https://bandofsistersparis.com/wp-content/uploads/2019/09/MDF-
 file3 = URI.open("https://yt3.ggpht.com/ytc/AAUvwngMY5Uy5pAvY0z0myT76YD7__Vs-iDbEryL3xas=s176-c-k-c0x00ffffff-no-rj")
 file4 = URI.open("https://rlv.zcache.fr/sticker_carre_logo_du_symbole_feministe-rcbc7e60783b843628a9ed53037ee6826_0ugmc_8byvr_540.jpg")
 file5 = URI.open("https://balancetonuterus.com/wp-content/uploads/2019/09/Logo-Balance-ton-ute%CC%81rus-01-e1568292886721.png")
+file6 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617554060/vr5iuwfyaomxh8y7ovbw.jpg")
+file7 = URI.open("https://avatars.githubusercontent.com/u/79447122?v=4")
 
 
-# file = URI.open("https://source.unsplash.com/random/100x100")
+users = []
 user_1 = User.create!(email: 'test@test.com', username: 'Amel', password: '123456', phone_number: '0669151332')
 User.last.photo.attach(io: file1, filename: 'nes.jpg', content_type: 'image/jpg')
 User.last.save!
 puts "#{user_1.username} has joined Ginny"
-user_2 = User.create!(email: 'test2@test.com', username: 'Maison des femmes', password: '123456', phone_number: '0669151732')
-user_2.photo.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
+users << user_1
+
+user_2 = User.create!(email: 'test6@test.com', username: 'Louise Amélie', password: '123456', phone_number: '669191732')
+user_2.photo.attach(io: file6, filename: 'nes.jpg', content_type: 'image/jpg')
 user_2.save!
 puts "#{user_2.username} has joined Ginny"
-user_3 = User.create!(email: 'test3@test.com', username: 'Gyn&Co', password: '123456', phone_number: '169151732')
-user_3.photo.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
+users << user_2
+
+
+user_3 = User.create!(email: 'test7@test.com', username: 'Helena', password: '123456', phone_number: '661191732')
+user_3.photo.attach(io: file7, filename: 'nes.jpg', content_type: 'image/jpg')
 user_3.save!
 puts "#{user_3.username} has joined Ginny"
-user_4 = User.create!(email: 'test4@test.com', username: 'Osez le féminisme', password: '123456', phone_number: '2669151732')
-user_4.photo.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
-user_4.save!
-puts "#{user_4.username} has joined Ginny"
-user_5 = User.create!(email: 'test5@test.com', username: 'Balance ton utérus', password: '123456', phone_number: '669151732')
-user_5.photo.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
-user_5.save!
-puts "#{user_5.username} has joined Ginny"
+users << user_3
+
 puts "Users created"
 
+# Associations
+
+associations = []
+
+association_2 = User.create!(email: 'test2@test.com', username: 'Maison des femmes', password: '123456', phone_number: '0669151732')
+association_2.photo.attach(io: file2, filename: 'nes.jpg', content_type: 'image/jpg')
+association_2.save!
+associations << association_2
+puts "#{association_2.username} has joined Ginny"
+
+association_3 = User.create!(email: 'test3@test.com', username: 'Gyn&Co', password: '123456', phone_number: '169151732')
+association_3.photo.attach(io: file3, filename: 'nes.jpg', content_type: 'image/jpg')
+association_3.save!
+associations << association_3
+puts "#{association_3.username} has joined Ginny"
+
+association_4 = User.create!(email: 'test4@test.com', username: 'Osez le féminisme', password: '123456', phone_number: '2669151732')
+association_4.photo.attach(io: file4, filename: 'nes.jpg', content_type: 'image/jpg')
+association_4.save!
+associations << association_4
+puts "#{association_4.username} has joined Ginny"
+
+association_5 = User.create!(email: 'test5@test.com', username: 'Balance ton utérus', password: '123456', phone_number: '669151732')
+association_5.photo.attach(io: file5, filename: 'nes.jpg', content_type: 'image/jpg')
+association_5.save!
+associations << association_5
+puts "#{association_5.username} has joined Ginny"
+
+
     # Creation of Friendship
+Friendship.create!(user: user_1, friend: association_2)
+Friendship.create!(user: user_1, friend: association_3)
 Friendship.create!(user: user_1, friend: user_2)
-Friendship.create!(user: user_1, friend: user_3)
-Friendship.create!(user: user_1, friend: user_4)
-Friendship.create!(user: user_1, friend: user_5)
+
 puts "Friendships initiated"
 
   # Imporations of Doctors
@@ -115,16 +145,23 @@ end
 
 # Creation of Recommandations, Favorites, Badges & Tags for each User
 
-User.all.each do |user|
-
+associations.each do |association|
   doctor_id = Doctor.first.id
   6.times do
-    Favorite.create!(user: user, doctor: Doctor.find(doctor_id))
+    Favorite.create!(user: association, doctor: Doctor.find(doctor_id))
     doctor_id +=1
     # Avoid to have same Favorite created twice
   end
 end
 
+users.each do |user|
+  doctor_id = Doctor.first.id
+  (1..3).to_a.sample.times do
+    Favorite.create!(user: user, doctor: Doctor.find(doctor_id))
+    doctor_id +=2
+    # Avoid to have same Favorite created twice
+  end
+end
 
 puts "Users favorites created"
 
@@ -132,6 +169,8 @@ Doctor.all.each do |doctor|
   new_reco = Recommendation.create!(user: User.all.sample, doctor: doctor )
   (1..3).to_a.sample.times do
     BadgeReco.create!(recommendation: new_reco, badge: Badge.all.sample)
+  end
+  (1..3).to_a.sample.times do
     TagReco.create!(recommendation: new_reco, tag: Tag.all.sample)
   end
 end
