@@ -24,7 +24,7 @@
           <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
         <% end %>
         <h2 class="profil-username"><%= link_to "#{profile.username }", profile_path(profile) %></h2>
-        <p><%= pluralize(profile.favorites.count, "praticien.ne favori", "praticien.ne favoris") %></p>
+        <p><%= pluralize(profile.favorites.count, "praticien.ne favori", "praticien.nes favoris") %></p>
         <%# <% unless profile == current_user %>
         <div class="follow-button align-content-center">
           <% if current_user.follow(profile) %>
