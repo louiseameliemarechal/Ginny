@@ -129,7 +129,7 @@
 
   // STRUCTURE
   //   <a href="#">Continuer avec Facebook</a>
-
+  margin-top: 6px;
   border-radius: 25px;
   background-color:white;
   display: block;
@@ -139,8 +139,12 @@
   text-decoration: none;
   color: black;
   text-align: center;
-  width: 250px;
+  width: 170px;
   border: 2px solid $burgundy;
+  height: 46px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
 
     &:hover {
