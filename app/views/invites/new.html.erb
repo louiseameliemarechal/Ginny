@@ -1,5 +1,6 @@
 
 <form>
+
 <div class ="form-group">
 <label class= "text-form-envoie" for="exampleFormControlInput1">Nom de mon ami.e</label>
 <input class="form-control" type="text" placeholder="Sarah Martin">
@@ -12,12 +13,11 @@
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
 
-  <div class="form-group">
-    <label class= "text-form-envoie" for="exampleFormControlTextarea1">Mon message</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <div class="form-group ">
+    <label class= "text-form-envoie " for="exampleFormControlTextarea1">Mon message</label>
+    <textarea class="form-envoie-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
 
-<button type="button" class="envoie-button">Envoyer</button>
 
-
+<%= link_to 'Envoyer', doctors_path(flash_notice: "Message envoyé"), class: 'envoie-button' %>
