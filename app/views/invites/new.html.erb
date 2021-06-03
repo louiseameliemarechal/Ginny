@@ -1,23 +1,23 @@
 
 <form>
 
-<div class ="form-group">
-<label class= "text-form-envoie" for="exampleFormControlInput1">Nom de mon ami.e</label>
-<input class="form-control" type="text" placeholder="Sarah Martin">
+  <div class ="form-group px-2">
+    <label class= "text-form-envoie" for="exampleFormControlInput1">Nom de mon ami.e</label>
+    <input class="form-control" type="text" placeholder="Sarah Martin">
+  </div>
 
-</div>
 
-
-  <div class="form-group">
+  <div class="form-group px-2">
     <label class= "text-form-envoie" for="exampleFormControlInput1">Adresse email </label>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
 
-  <div class="form-group ">
+  <div class="form-group px-2">
     <label class= "text-form-envoie " for="exampleFormControlTextarea1">Mon message</label>
     <textarea class="form-envoie-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
 
-
-<%= link_to 'Envoyer', doctors_path(flash_notice: "Message envoyé"), class: 'envoie-button' %>
+<div class="d-flex justify-content-center align-items-center">
+  <%= link_to 'Envoyer', doctors_path(flash_notice: "Message envoyé"), class: 'button-main pt-2' %>
+</div>

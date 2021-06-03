@@ -129,7 +129,7 @@
 
   // STRUCTURE
   //   <a href="#">Continuer avec Facebook</a>
-
+  margin-top: 6px;
   border-radius: 25px;
   background-color:white;
   display: block;
@@ -139,8 +139,12 @@
   text-decoration: none;
   color: black;
   text-align: center;
-  width: 250px;
+  width: 170px;
   border: 2px solid $burgundy;
+  height: 46px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 
 
     &:hover {
@@ -327,12 +331,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  background-color: $burgundy;
+  border: 2px solid $grey;
+  background-color: $light-grey;
   font-family: Domine;
   font-weight: bold;
   font-size: 14px;
   text-decoration: none;
-  color: white;
+  color: black;
   text-align: center;
   width: fit-content;
   min-width: 100px;
@@ -340,15 +345,16 @@
   padding: 8px;
       a {
     text-decoration: none;
-    color: white;
+    color: $dark-grey;
     }
 }
 
 .unfollow-button {
+  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  background-color: rgba(71, 7, 0, 0.5);
+  background-color: $burgundy;
   font-family: Domine;
   font-weight: bold;
   font-size: 14px;
