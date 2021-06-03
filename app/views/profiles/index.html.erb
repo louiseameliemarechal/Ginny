@@ -28,14 +28,13 @@
         <%# <% unless profile == current_user %>
           <% if current_user.follow(profile) %>
             <div class="unfollow-button align-content-center">
-              <%= link_to "Abonné.e", friendship_path(current_user.follow(profile)), method: :delete %>
+              <%= link_to "Se desabonner", friendship_path(current_user.follow(profile)), method: :delete %>
             </div>
           <% else %>
             <div class="follow-button align-content-center">
               <%= link_to "S'abonner", profile_friendships_path(profile), method: :post %>
             </div>
           <% end %>
-        </div>
         <%# <% end %>
 
       </div>
