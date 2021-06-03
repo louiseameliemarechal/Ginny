@@ -1,18 +1,19 @@
 <div class="container pt-4 mt-4 d-flex justify-content-center background_search">
   <%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
-    <div class="row  no-gutters">
+    <div class="row no-gutters">
       <div class="col align-self-enter">
         <%= f.input :address,
           input_html: { value:  params.dig(:search, :address) },
           class: "form-control",
-          placeholder: "73 Rue De Caumartin Paris",
+          placeholder: "73 Rue De Caumartin 75009 Paris",
+
           label: false,
           required: false
         %>
       </div>
     </div>
 
-    <div class="row  no-gutters d-flex justify-content-center">
+    <div class="row no-gutters d-flex justify-content-center">
       <div class="col align-self-enter">
         <%= f.input :name_or_specialty,
           input_html: { value:  params.dig(:search, :name_or_specialty) },
