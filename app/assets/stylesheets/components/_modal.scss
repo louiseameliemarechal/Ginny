@@ -20,14 +20,16 @@
 
   .modal-title {
     text-align: center;
+    font-family: "Staatliches" !important;
+    color: $burgundy;
+    font-size: 1.4rem;
   }
-  
+
   .modal-body {
     padding: 0 1rem 1rem 1rem;
-  }
-  
   .modal-footer {
     display: inline;
+
     label {
       font-size: 0.9rem;
       color: black;
