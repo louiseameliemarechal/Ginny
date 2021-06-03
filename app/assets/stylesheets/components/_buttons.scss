@@ -321,6 +321,7 @@
   margin-top: 52px;
   margin-bottom: 5px;
 }
+
 .follow-button {
   display: flex;
   align-items: center;
@@ -344,17 +345,18 @@
 }
 
 .unfollow-button {
-  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  background-color: rgba(71, 7, 0, 0.5);;
-  font-family: Staatliches;
+  background-color: rgba(71, 7, 0, 0.5);
+  font-family: Domine;
+  font-weight: bold;
   font-size: 14px;
   text-decoration: none;
   color: white;
   text-align: center;
-  width: 100px;
+  width: fit-content;
+  min-width: 100px;
   height: 32px;
   padding: 8px;
     a {
