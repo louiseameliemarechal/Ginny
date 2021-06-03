@@ -22,6 +22,10 @@ class User < ApplicationRecord
     favorites.find_by(doctor: doctor)
   end
 
+  def recommended_doctor?(doctor)
+    recommendations.pluck(:doctor_id).include?(doctor.id)
+  end
+
   def follow(profile)
     friendships.find_by(friend_id: profile.id)
   end

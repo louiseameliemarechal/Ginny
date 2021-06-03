@@ -16,11 +16,10 @@
           <%= simple_form_for :search, url: doctors_path, method: :get, data: { controller: "search-form" } do |f| %>
 
             <div class="row d-flex justify-content-center">
-              <div class="col align-self-enter d-flex">
+              <div class="align-self-enter d-flex">
                 <%= f.input :name_or_specialty,
                   input_html: { value:  params.dig(:search, :name_or_specialty) },
                   class: "form-control",
-
                   placeholder: "Georges Chivas, DIU",
                   label: "<i class='fas fa-search text-primary pin'></i>".html_safe,
                   required: false

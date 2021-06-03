@@ -64,12 +64,20 @@
       <%= link_to "Attribuer un badge", new_doctor_recommendation_path(@doctor), :class => "text-secondary" %>
     </div>
   </div>
-<%#
-  <div class="box-bordered py-4 px-5">
+
+  <div class="box-bordered custom-padding-ginny">
     <h4>Recommandé par</h4>
-    <div class="friends-list">
+    <div class="badge-list">
+      <div class="badge-card">
+        <% @recommendations.each do |user|%>
+          <% if user.photo.attached?%>
+            <%= cl_image_tag user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+            <p><%= link_to "#{user.username }", profile_path(user) %></p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div> %>
+  </div>
 
   <div class="box-bordered custom-padding-ginny">
     <h4> Tarifs et remboursement</h4>
@@ -80,4 +88,3 @@
     </div>
   </div>
 </div>
-

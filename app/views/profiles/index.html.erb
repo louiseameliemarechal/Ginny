@@ -4,7 +4,7 @@
   <div class=" container px-4 pagination justify-content-center">
     <%= simple_form_for :search, url: profiles_path, method: :get, data: { controller: "search-form" } do |f| %>
       <div class="row">
-        <div class="col align-self-enter">
+        <div class="col pt-3 align-self-enter">
           <%= f.input :username,
             input_html: { value:  params.dig(:search, :username) },
             class: "form-control",
@@ -24,17 +24,14 @@
           <%= cl_image_tag profile.photo.key, class: "avatar-xxl mb-3", width: 200 %>
         <% end %>
         <h2 class="profil-username"><%= link_to "#{profile.username }", profile_path(profile) %></h2>
-        <p><%= pluralize(profile.favorites.count, "praticien.ne suivi.e", "praticien.ne suivi.e.s") %></p>
-        <p class="friends-count">
-         <%= profile.friendships.count == 0 ? "ne suit personne" : pluralize(profile.friendships.count, "abonnement") %>
-        </p>
+        <p><%= pluralize(profile.favorites.count, "praticien.ne favori", "praticien.ne favoris") %></p>
         <%# <% unless profile == current_user %>
           <% if current_user.follow(profile) %>
-            <div class="unfollow-button">
-              <%= link_to "Se désabonner", friendship_path(current_user.follow(profile)), method: :delete %>
+            <div class="unfollow-button align-content-center">
+              <%= link_to "Abonné.e", friendship_path(current_user.follow(profile)), method: :delete %>
             </div>
           <% else %>
-            <div class="follow-button">
+            <div class="follow-button align-content-center">
               <%= link_to "S'abonner", profile_friendships_path(profile), method: :post %>
             </div>
           <% end %>
@@ -47,8 +44,7 @@
       <%# <%= link_to "Abonné.e", new_invite_path, class: "follow-button" %>
     </div>
     <div class='d-flex justify-content-center p-3'>
-      <%= link_to "Inviter un.e ami.e", new_invite_path, class: "button-secondary py-2" %>
+      <%= link_to "Inviter un.e ami.e", new_invite_path, class: "button-secondary py-2", id:"add-friend-button" %>
     </div>
   </div>
-
 </div>

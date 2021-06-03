@@ -131,7 +131,7 @@
   //   <a href="#">Continuer avec Facebook</a>
 
   border-radius: 25px;
-  background-color:$pink;
+  background-color:white;
   display: block;
   font-family: Domine;
   font-size: 16px;
@@ -327,14 +327,20 @@
   justify-content: center;
   border-radius: 25px;
   background-color: $burgundy;
-  font-family: Staatliches;
+  font-family: Domine;
+  font-weight: bold;
   font-size: 14px;
   text-decoration: none;
   color: white;
   text-align: center;
-  width: 100px;
+  width: fit-content;
+  min-width: 100px;
   height: 32px;
   padding: 8px;
+      a {
+    text-decoration: none;
+    color: white;
+    }
 }
 
 .unfollow-button {
@@ -351,6 +357,10 @@
   width: 100px;
   height: 32px;
   padding: 8px;
+    a {
+    text-decoration: none;
+    color: white;
+    }
 }
 
 

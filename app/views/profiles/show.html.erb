@@ -1,6 +1,7 @@
 
-<div class="container ginny-show profile-show px-4">
+<div class=" ginny-show profile-show">
 <%# Avatar %>
+
   <div class="profil-info">
     <div class="profil-text">
       <h2><%= @profile.username %></h2>
@@ -8,11 +9,10 @@
       <% unless @profile == current_user %>
       <div class="profile-button">
         <div class="follow-button">
-          <%= link_to 'Abonné.e', profile_friendships_path(@profile), method: :post unless @friendship %>
-        </div>
+          <%= link_to 'Se désabonner', profile_friendships_path(@profile), method: :post unless @friendship %>
         <%# <div class="unfollow-button"> %>
-        <%# <%= link_to 'Se désabonner', friendship_path(@friendship), method: :delete if @friendship %>
-        <%# </div> %>
+        <%= link_to 'Abonné.e', friendship_path(@friendship), method: :delete if @friendship %>
+        </div>
       </div>
       <% end %>
     </div>
@@ -27,21 +27,24 @@
 
 
 
-  <hr>
+
+
   <h3>Soignant.e.s en favoris</h3>
-  <div class="doctor-card-list">
+  <div class="doctor-list">
     <% @profile.favorites.includes(:doctor).each do |favorite| %>
-    <div class="dashboard-doctor-card">
-      <div class="doctor-card-text">
+    <div class='box-bordered'>
+      <div class ='doctor-card'>
+        <div class="doctor-card-text">
         <h4>
           <%= link_to "#{favorite.doctor.first_name.capitalize} #{favorite.doctor.last_name.capitalize}", doctor_path(favorite.doctor) %>
         </h4>
         <p><%= favorite.doctor.street %></p>
         <p><%= favorite.doctor.city %></p>
-      </div>
-      <div class="doctor-card-tag">
-        <div class="tag <%=favorite.doctor.profession%> p-2">
-          <%= favorite.doctor.profession %>
+        </div>
+        <div class="doctor-card-tag">
+          <div class="tag <%=favorite.doctor.profession%> p-2">
+            <%= favorite.doctor.profession.capitalize %>
+          </div>
         </div>
       </div>
     </div>

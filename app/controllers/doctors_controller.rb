@@ -61,6 +61,8 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
     @backlink = params[:backlink]
     # @favorite = Favorite.find(params[:id])
+    @friends = current_user.friends
+    @recommendations = @friends.select{|friend| friend.recommended_doctor?(@doctor)}
   end
 
   private
