@@ -9,8 +9,9 @@
 
 
 .tag-selector:not(:checked) + label {
-  color: $dark-grey;
+  color: white;
   border-color: $light-grey;
+  background-color: gray;
 }
 
 label[for="recommendation_tags_ivg-friendly"]::before {

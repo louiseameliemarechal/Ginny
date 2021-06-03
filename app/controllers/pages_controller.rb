@@ -3,9 +3,9 @@ class PagesController < ApplicationController
 
   def home
     @user = User.new
-    if current_user
-      redirect_to doctors_path
-    end
+    # if current_user
+    #   redirect_to doctors_path
+    # end
   end
 
   def search
