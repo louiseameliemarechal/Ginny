@@ -1,17 +1,20 @@
 .doctor-card {
   display: flex;
   justify-content: space-between;
-  padding: 12px 40px;
+  padding: 12px 10px;
   position: relative;
   padding-top: 20px;
+  h4 { margin-bottom: 4px ;
+
+  }
 
 
   .doctor-card-text {
     flex-grow: 1;
 
     p {
-      margin-bottom: -5px;
-      font-size: 10px;
+      margin-bottom: 0px;
+      font-size: 12px;
       margin-right: 4px;
     }
   }
@@ -30,7 +33,6 @@
     .tag {
      margin-top: auto;
      font-size: 0.8rem;
-     margin-right: -12px;;
      min-width: 80px;
     }
   }
