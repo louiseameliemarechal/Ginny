@@ -30,7 +30,7 @@
   </div>
 
 
-  <div class="box-bordered py-4 px-5">
+  <div class="box-bordered custom-padding-ginny">
     <h4>Tags</h4>
     <div class="tag-list">
       <% @doctor.tags.uniq.each do |tag| %>
@@ -45,7 +45,7 @@
   </div>
 
 
-  <div class="box-bordered py-4 px-5">
+  <div class="box-bordered custom-padding-ginny">
     <h4>Badges de la communauté</h4>
     <div class="badge-list">
       <% @doctor.group_badges.each do |key, value| %>
@@ -71,7 +71,7 @@
     </div>
   </div> %>
 
-  <div class="box-bordered py-4 px-5">
+  <div class="box-bordered custom-padding-ginny">
     <h4> Tarifs et remboursement</h4>
     <div class="pricing-info py-3">
       <p>Cout moyen: <%= "#{@doctor.average_number}" %> €</p>
