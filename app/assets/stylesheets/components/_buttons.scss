@@ -333,11 +333,15 @@
   text-decoration: none;
   color: white;
   text-align: center;
-  width: 100px;
+  width: fit-content;
+  min-width: 100px;
   height: 32px;
   padding: 8px;
 
-
+    a {
+    text-decoration: none;
+    color: white;
+    }
 }
 
 .envoie-button {
