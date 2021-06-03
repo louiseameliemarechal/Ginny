@@ -102,7 +102,7 @@ label[for="search_tags_diu"]::before {
 }
 
 .tag-selector:checked + label[for="search_tags_diu"]::before {
-  background-color: $tag-grey !important;
+  background-color: #a9c762 !important;
 }
 
 label[for="search_tags_lgbt"]::before {
