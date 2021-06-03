@@ -9,25 +9,45 @@
 }
 
 #recommendationModal {
+  #search_name_or_specialty {
+    font-size: 14px;
+    padding-left: 10px;
+  }
+
+  .modal-header {
+    padding-bottom: 0;
+  }
+
   .modal-title {
     text-align: center;
+    font-family: "Staatliches" !important;
+    color: $burgundy;
+    font-size: 1.4rem;
   }
+
+  .modal-body {
+    padding: 0 1rem 1rem 1rem;
+  }
+
   .modal-footer {
     display: inline;
+
     label {
       font-size: 0.9rem;
       color: black;
       margin-bottom: 0;
-      }
     }
+
     .button-main {
       margin: 15px auto;
       line-height: 46px;
     }
   }
+
   .form-group {
     .form-control {
       width: 255px;
+      padding: 0;
     }
   }
-
+}

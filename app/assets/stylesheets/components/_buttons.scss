@@ -113,7 +113,7 @@
   display: block;
   font-family: Martel;
   font-weight: 500;
-  font-size: 23px;
+  font-size: 23px !important;
   // line-height: 47px;
   height: 49px;
   margin-top: 30px;
@@ -339,3 +339,24 @@
 
 }
 
+.envoie-button {
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: #470600;
+  font-family: Domine;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 250px;
+  height: 65px;
+  border: 2px solid #470600;
+  padding: 4px;
+  margin-left: 66px;
+  margin-top: 52px;
+  margin-bottom: 5px;
+}
