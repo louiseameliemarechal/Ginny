@@ -65,19 +65,21 @@
     </div>
   </div>
 
-  <div class="box-bordered custom-padding-ginny">
-    <h4>Recommandé par</h4>
-    <div class="badge-list">
-      <div class="badge-card">
-        <% @recommendations.each do |user|%>
-          <% if user.photo.attached?%>
-            <%= cl_image_tag user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
-            <p><%= link_to "#{user.username }", profile_path(user) %></p>
+  <% if @recommendations.any? %>
+    <div class="box-bordered custom-padding-ginny">
+      <h4>Recommandé par</h4>
+      <div class="badge-list">
+        <div class="badge-card">
+          <% @recommendations.each do |user|%>
+            <% if user.photo.attached?%>
+              <%= cl_image_tag user.photo.key, class: "avatar-xxl mb-3", width: 200 %>
+              <p><%= link_to "#{user.username }", profile_path(user) %></p>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="box-bordered custom-padding-ginny">
     <h4> Tarifs et remboursement</h4>
