@@ -1,4 +1,4 @@
-<div class="modal fade" id="recommendationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="modal">
+<div class="modal fade" id="recommendationModal" tabindex="-1" role="dialog" aria-labelledby="recommendationModal" aria-hidden="true" data-controller="modal">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -20,7 +20,7 @@
                 <%= f.input :name_or_specialty,
                   input_html: { value:  params.dig(:search, :name_or_specialty) },
                   class: "form-control",
-                  label: "Nom du praticien.ne ou spécialité",
+
                   placeholder: "Georges Chivas, DIU",
                   label: "<i class='fas fa-search text-primary pin'></i>".html_safe,
                   required: false
@@ -29,6 +29,7 @@
             </div>
 
             <div class="d-flex justify-content-center">
+
               <%= f.submit :Chercher, class: "button-main mb-4" %>
             </div>
 
