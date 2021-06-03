@@ -20,7 +20,12 @@
       </p>
     </div>
     <div class="button-main mt-4 py-2" data-action="click->hello#change">Continuer</div>
-    <div class="d-none"><%= link_to 'Continuer', new_user_session_path, data: { hello_target: 'loginButton' } %></div>
-
+    <div class="d-none">
+      <% if current_user%>
+        <%= link_to 'Continuer', doctors_path, data: { hello_target: 'loginButton' } %>
+      <% else %>
+        <%= link_to 'Continuer', new_user_session_path, data: { hello_target: 'loginButton' } %>
+      <% end %>
+    </div>
   </div>
 
