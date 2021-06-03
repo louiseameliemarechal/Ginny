@@ -26,14 +26,11 @@
         <h2 class="profil-username"><%= link_to "#{profile.username }", profile_path(profile) %></h2>
         <p><%= pluralize(profile.favorites.count, "praticien.ne favori", "praticien.ne favoris") %></p>
         <%# <% unless profile == current_user %>
+        <div class="follow-button align-content-center">
           <% if current_user.follow(profile) %>
-            <div class="unfollow-button align-content-center">
-              <%= link_to "Abonné.e", friendship_path(current_user.follow(profile)), method: :delete %>
-            </div>
+            <%= link_to "Abonné.e", friendship_path(current_user.follow(profile)), method: :delete %>
           <% else %>
-            <div class="follow-button align-content-center">
-              <%= link_to "S'abonner", profile_friendships_path(profile), method: :post %>
-            </div>
+            <%= link_to "Se désabonner", profile_friendships_path(profile), method: :post %>
           <% end %>
         </div>
         <%# <% end %>
