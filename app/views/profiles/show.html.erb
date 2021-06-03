@@ -8,11 +8,16 @@
       <%# <p><%= pluralize(@profile.friendships.count, 'ami.e', 'ami.e.s')</p>%>
       <% unless @profile == current_user %>
       <div class="profile-button">
-        <div class="follow-button">
-          <%= link_to 'Se désabonner', profile_friendships_path(@profile), method: :post unless @friendship %>
-        <%# <div class="unfollow-button"> %>
-        <%= link_to 'Abonné.e', friendship_path(@friendship), method: :delete if @friendship %>
-        </div>
+
+       <% if current_user.follow(@profile) %>
+            <div class="unfollow-button align-content-center">
+              <%= link_to "Abonné.e", friendship_path(current_user.follow(@profile)), method: :delete %>
+            </div>
+          <% else %>
+            <div class="follow-button align-content-center">
+              <%= link_to "Abonné.e", profile_friendships_path(@profile), method: :post %>
+            </div>
+          <% end %>
       </div>
       <% end %>
     </div>

@@ -1,13 +1,12 @@
 .profile-show {
   justify-content: flex-start;
 
-
   .profil-info {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     padding: 30px;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: space-evenly;
+    align-items: flex-end;
     margin-bottom: 12px;
     background-color: white;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -21,8 +20,6 @@
       h2 {
         color:black;
       }
-
-
     }
     .profil-pic {
       display: flex;
